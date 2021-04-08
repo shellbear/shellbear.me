@@ -1,0 +1,29 @@
+---
+title: Shareview
+post: CTO
+date: 2020 - Now
+url: https://play.google.com/store/apps/details?id=fr.shareview.app
+---
+
+Since 2020, I'm working as the CTO of Shareview, a new social network that aims to share breathtaking video landscapes from all over the world.
+The team is small, there is one CEO and just one developer.
+
+The challenge is huge: launching a social network from zero. An API, a website, a mobile app for Android and iOS, the encoding of the videos...
+
+I had to make choices on a scalable and efficient infrastructure. I deployed the whole infrastructure on [AWS](https://aws.amazon.com/) and all the backend
+side while also working on the mobile application. I'm also experimenting hosting some services on [IBM Cloud](https://cloud.ibm.com/).
+
+The infrastructure has been created with [terraform](https://www.terraform.io/) and [ekstcl](https://eksctl.io/).
+
+Shareview backend is composed of multiple services written [Go](https://golang.org/) in that consist of a [GraphQL API](https://graphql.org/) and background services that execute
+tasks such as video encoding.
+
+Services use [AWS SQS](https://aws.amazon.com/sqs/) to communicate between each other and are
+deployed with [Helm charts](https://helm.sh/) on [Kubernetes](https://kubernetes.io/) on auto-scaled
+[AWS EKS](https://aws.amazon.com/eks/) cluster.
+
+For monitoring we use [Sentry](https://sentry.io/welcome/) and the EFK stack ([ElasticSearch](https://www.elastic.co/elasticsearch/),
+[Fluentd](https://www.fluentd.org/architecture) and [Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html)).
+
+The mobile application is made in [react-native](https://reactnative.dev/) with [expo](https://expo.io/) in
+[bare workflow](https://docs.expo.io/introduction/managed-vs-bare/#bare-workflow). Website is made with [next.js](https://nextjs.org/).
