@@ -16,6 +16,16 @@
   align-items: center;
 }
 
+@media (max-width: 600px) {
+  .main {
+    padding: 1rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
 .footer {
   width: 100%;
   height: 100px;

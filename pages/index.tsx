@@ -52,9 +52,14 @@ const Home: React.FC = () => {
             Although I'm not actively looking for job opportunities, my inbox is
             still open for you. Feel free to ask me anything!
           </Text>
-          <Grid gridGap="2rem">
+          <Grid
+            gridGap="2rem"
+            gridTemplateColumns={['1fr', 'repeat(2, 1fr)']}
+            justifyItems="stretch"
+            alignItems="stretch"
+          >
             <Link href="mailto:hello@shellbear.me">
-              <Button>
+              <Button width="100%">
                 <motion.span
                   initial={{ display: 'inline-block' }}
                   animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
@@ -71,6 +76,7 @@ const Home: React.FC = () => {
             </Link>
             <Link href="https://calendly.com/antoine-ordonez/intro">
               <Button
+                width="100%"
                 backgroundColor="rgb(226,232,240)"
                 color="black"
                 variant="secondary"

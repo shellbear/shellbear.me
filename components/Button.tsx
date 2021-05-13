@@ -2,10 +2,12 @@ import styled, { css, keyframes } from 'styled-components';
 import {
   padding,
   color,
+  layout,
   variant,
   compose,
   PaddingProps,
   ColorProps,
+  LayoutProps,
 } from 'styled-system';
 
 interface ButtonProps {
@@ -38,7 +40,9 @@ const animation = keyframes`
   }
 `;
 
-const Button = styled.button<ButtonProps & PaddingProps & ColorProps>`
+const Button = styled.button<
+  ButtonProps & PaddingProps & ColorProps & LayoutProps
+>`
   font-size: 1rem;
   line-height: 1.5rem;
   margin: 0;
@@ -59,8 +63,9 @@ const Button = styled.button<ButtonProps & PaddingProps & ColorProps>`
     css`
       animation: ${animation} 2s linear infinite;
     `}
-  ${compose(padding, color)}
-      ${variant({
+  ${compose(padding, color, layout)}
+  
+  ${variant({
     variants: {
       animated: {
         background:

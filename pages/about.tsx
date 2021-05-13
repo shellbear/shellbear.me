@@ -94,13 +94,13 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
   return (
     <Container gridGap="3rem">
       <Container alignContent="center" alignItems="center">
-        <Title>From student to CTO</Title>
-        <Container maxWidth="60rem">
+        <Title fontSize={['48px', '74px']}>From student to CTO</Title>
+        <Container maxWidth={['100%', '60rem']}>
           <Text>
             I'm passionated by computers since I'm young. I always helped my
             family and friends to understand how stuff works.
-          </Text>
-          <Text>
+            <br />
+            <br />
             During my high school years I discovered the world of cybersecurity.
             I was writing malware for MacOS and Linux, created phishing pages,
             fake hotspots, bruteforcing wifi networks, accessing cameras in my
@@ -110,6 +110,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
       </Container>
 
       <Container
+        paddingY="4rem"
         gridGap="2rem"
         alignContent="center"
         alignItems="center"
@@ -118,7 +119,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
       >
         <Title fontSize="40px">Technologies I frequently use</Title>
         <Grid
-          gridTemplateColumns="repeat(6 , 1fr)"
+          gridTemplateColumns={['repeat(3 , 1fr)', 'repeat(6 , 1fr)']}
           gridGap="1rem"
           justifyItems="center"
           maxWidth="40rem"
@@ -133,66 +134,78 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         </Grid>
       </Container>
 
-      <Grid
-        justifyItems="flex-start"
-        alignItems="flex-start"
-        gridTemplateColumns="1fr 2fr"
-        gridGap="60px"
-        paddingY="4rem"
-        maxWidth="80rem"
-        minHeight="48rem"
-        minWidth="100%"
+      <Container
+        alignContent="center"
+        alignItems="center"
+        textAlign="center"
+        width="100%"
       >
-        <Container
-          height="100%"
-          alignItems="stretch"
-          flexDirection="column"
-          gridGap="12px"
-        >
-          {experiences.map(({ data }, i) => (
-            <Card
-              key={i}
-              selected={i == selected}
-              onClick={() => setSelected(i)}
-              gridGap="15px"
-            >
-              <Image
-                src={`/logos/${data.slug}.png`}
-                alt={data.slug}
-                width="55px"
-                height="55px"
-                objectFit="contain"
-                className={styles.image}
-              />
-              <Grid justifyItems="left" gridGap="1px" gridTemplateColumns="1fr">
-                <b>
-                  {data.title} / {data.date}
-                </b>
-                <small>{data.post}</small>
-              </Grid>
-            </Card>
-          ))}
-        </Container>
-        <Container
+        <Title fontSize="40px">Work Experiences</Title>
+        <Grid
+          justifyItems={['center', 'flex-start']}
           alignItems="flex-start"
-          paddingBottom="3rem"
-          height="100%"
-          width="100%"
+          gridTemplateColumns={['1fr', '1fr 2fr']}
+          gridGap="60px"
+          paddingY="4rem"
+          maxWidth={['100%', '80rem']}
+          minHeight="48rem"
+          minWidth="100%"
         >
-          <Container alignItems="center" width="100%">
-            <Title fontSize="2rem">
-              {data.post}
-              {' @ '}
-              <Link textDecoration="underline" href={data.url}>
-                {data.title}
-              </Link>
-            </Title>
+          <Container
+            height="100%"
+            alignItems="stretch"
+            flexDirection="column"
+            gridGap="12px"
+          >
+            {experiences.map(({ data }, i) => (
+              <Card
+                key={i}
+                selected={i == selected}
+                onClick={() => setSelected(i)}
+                gridGap="15px"
+              >
+                <Image
+                  src={`/logos/${data.slug}.png`}
+                  alt={data.slug}
+                  width="55px"
+                  height="55px"
+                  objectFit="contain"
+                  className={styles.image}
+                />
+                <Grid
+                  justifyItems="left"
+                  gridGap="1px"
+                  gridTemplateColumns="1fr"
+                >
+                  <b>
+                    {data.title} / {data.date}
+                  </b>
+                  <small>{data.post}</small>
+                </Grid>
+              </Card>
+            ))}
           </Container>
-          <Container>
-            <MDXRemote {...source} />
+          <Container
+            alignItems="flex-start"
+            paddingBottom="3rem"
+            height="100%"
+            width="100%"
+          >
+            <Container alignItems="center" width="100%">
+              <Title fontSize="2rem">
+                {data.post}
+                {' @ '}
+                <Link textDecoration="underline" href={data.url}>
+                  {data.title}
+                </Link>
+              </Title>
+            </Container>
+            <Container maxWidth="100%" textAlign="justify">
+              <MDXRemote {...source} />
+            </Container>
           </Container>
-        </Container>
-      </Grid>
+        </Grid>
+      </Container>
     </Container>
   );
 };

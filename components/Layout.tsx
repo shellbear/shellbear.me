@@ -12,7 +12,6 @@ import { MdMail } from 'react-icons/md';
 import Button from './Button';
 import Text from './Text';
 import Container from './Container';
-import { useViewport } from '../hooks/viewport';
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -56,6 +55,7 @@ const Nav = styled.nav`
   margin: 0 auto;
   padding: 0 4vw;
   background: white;
+  z-index: 1;
 
   @media (max-width: 768px) {
     position: sticky;
@@ -70,7 +70,6 @@ const Layout: React.FC<LayoutProps> = ({
   children,
 }) => {
   const router = useRouter();
-  const { width } = useViewport();
 
   return (
     <div className={styles.container}>
@@ -91,7 +90,11 @@ const Layout: React.FC<LayoutProps> = ({
             <b>Ordonez</b>
           </span>
         </Link>
-        <Grid gridGap={width > 768 ? '40px' : '2rem'}>
+        <Grid
+          gridGap={['2rem', '40px']}
+          gridTemplateColumns={['repeat(3, 1fr)', 'repeat(4, auto)']}
+          justifyItems="center"
+        >
           <Link
             href="/"
             fontSize="smaller"
@@ -103,7 +106,7 @@ const Layout: React.FC<LayoutProps> = ({
           </Link>
           <Link
             textTransform="uppercase"
-            fontSize={width <= 768 ? '1rem' : '12px'}
+            fontSize={['1rem', '12px']}
             fontWeight="bold"
             opacity={0.7}
             href="/about"
@@ -114,20 +117,22 @@ const Layout: React.FC<LayoutProps> = ({
           <Link
             textTransform="uppercase"
             fontWeight="bold"
-            fontSize={width <= 768 ? '1rem' : '12px'}
+            fontSize={['1rem', '12px']}
             opacity={0.7}
             href="/projects"
             isSelected={router.pathname === '/projects'}
           >
             Projects
           </Link>
-          {width > 768 && (
-            <Link textTransform="uppercase" href="mailto:hello@shellbear.me">
-              <Button padding="10px 12px" variant="secondary">
-                hello@shellbear.me
-              </Button>
-            </Link>
-          )}
+          <Link
+            textTransform="uppercase"
+            href="mailto:hello@shellbear.me"
+            className="desktop"
+          >
+            <Button padding="10px 12px" variant="secondary">
+              hello@shellbear.me
+            </Button>
+          </Link>
         </Grid>
       </Nav>
       <Container justifyContent="space-between" alignContent="space-between">
