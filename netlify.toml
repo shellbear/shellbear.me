@@ -4,3 +4,10 @@ publish = "out"
 
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+    [plugins.inputs]
+    buildDir = "out"
+

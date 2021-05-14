@@ -1,6 +1,7 @@
 import React from 'react';
 import { Title, Text, Container, Grid, Link, Card } from '../components';
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import path from 'path';
 import fs from 'fs';
 import matter, { GrayMatterFile } from 'gray-matter';
@@ -93,6 +94,9 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
 
   return (
     <Container gridGap="3rem">
+      <Head>
+        <title>About</title>
+      </Head>
       <Container alignContent="center" alignItems="center">
         <Title fontSize={['48px', '74px']}>From student to CTO</Title>
         <Container maxWidth={['100%', '60rem']}>

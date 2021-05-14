@@ -7,6 +7,7 @@ import { NextPage, GetStaticPaths, GetStaticPropsResult } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import matter, { GrayMatterFile } from 'gray-matter';
+import Head from 'next/head';
 
 interface AboutProps {
   data: GrayMatterFile<string>['data'];
@@ -20,6 +21,9 @@ const About: NextPage<AboutProps> = ({ data, source }) => (
       justifyContent="center"
       alignContent="center"
     >
+      <Head>
+        <title>{data.title}</title>
+      </Head>
       <Title>
         {data.post} @ {data.title}
       </Title>
