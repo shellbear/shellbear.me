@@ -6,6 +6,9 @@ publish = "out"
 package = "@netlify/plugin-nextjs"
 
 [[plugins]]
+package = "netlify-plugin-image-optim"
+
+[[plugins]]
 package = "@netlify/plugin-sitemap"
 
     [plugins.inputs]
