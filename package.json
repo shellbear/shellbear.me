@@ -26,8 +26,6 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "3.2.2",
-    "@netlify/plugin-sitemap": "^0.8.1",
     "@types/react": "^17.0.3",
     "@typescript-eslint/parser": "^4.21.0",
     "eslint-config-prettier": "^8.1.0",
