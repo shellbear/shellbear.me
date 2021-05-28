@@ -12,6 +12,7 @@ import { MdMail } from 'react-icons/md';
 import Button from './Button';
 import Text from './Text';
 import Container from './Container';
+import Instagram from '../icons/Instagram';
 
 type LayoutProps = {
   children?: React.ReactNode;
@@ -32,7 +33,7 @@ const Footer = styled.footer`
 
 const FooterGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 30px;
   margin-bottom: 30px;
   margin-top: 20px;
@@ -70,6 +71,36 @@ const Layout: React.FC<LayoutProps> = ({
   children,
 }) => {
   const router = useRouter();
+
+  const links = React.useMemo(
+    () => [
+      {
+        url: 'https://github.com/shellbear',
+        icon: SiGithub,
+      },
+      {
+        url: 'https://twitter.com/_shellbear',
+        icon: SiTwitter,
+      },
+      {
+        url: 'mailto:hello@shellbear.me',
+        icon: MdMail,
+      },
+      {
+        url: 'https://malt.fr/profile/antoineordonez',
+        icon: Malt,
+      },
+      {
+        url: 'https://linkedin.com/in/antoine-ordonez',
+        icon: SiLinkedin,
+      },
+      {
+        url: 'https://instagram.com/croissant2france',
+        icon: Instagram,
+      },
+    ],
+    [],
+  );
 
   return (
     <div className={styles.container}>
@@ -147,27 +178,11 @@ const Layout: React.FC<LayoutProps> = ({
             </Grid>
           </Container>
           <FooterGrid>
-            <Link opacity={0.7} href="https://github.com/shellbear">
-              <SiGithub size={22} />
-            </Link>
-            <Link opacity={0.7} href="https://twitter.com/_shellbear">
-              <SiTwitter size={22} />
-            </Link>
-            <Link opacity={0.7} href="mailto:hello@shellbear.me">
-              <MdMail size={24} />
-            </Link>
-            <Link
-              opacity={0.7}
-              href="https://www.malt.fr/profile/antoineordonez"
-            >
-              <Malt size={22} />
-            </Link>
-            <Link
-              opacity={0.7}
-              href="https://www.linkedin.com/in/antoine-ordonez/"
-            >
-              <SiLinkedin size={22} />
-            </Link>
+            {links.map(({ url, icon: Icon }) => (
+              <Link key={url} opacity={0.7} href={url}>
+                <Icon size={22} />
+              </Link>
+            ))}
           </FooterGrid>
           <Text margin={0} fontSize="0.9rem" color="rgba(0, 0, 0, 0.7)">
             @ {new Date().getFullYear()} Antoine Ordonez
