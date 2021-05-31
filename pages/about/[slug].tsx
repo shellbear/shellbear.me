@@ -15,7 +15,7 @@ interface AboutProps {
 }
 
 const About: NextPage<AboutProps> = ({ data, source }) => (
-  <Container maxWidth={900}>
+  <Container maxWidth={1200}>
     <Container
       alignItems="center"
       justifyContent="center"

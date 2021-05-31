@@ -129,7 +129,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
           maxWidth="40rem"
         >
           {stacks.map(({ Icon, url }, i) => (
-            <Link href={url}>
+            <Link href={url} key={url}>
               <Card key={i}>
                 <Icon size="2rem" />
               </Card>
@@ -148,18 +148,18 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         <Grid
           justifyItems={['center', 'flex-start']}
           alignItems="flex-start"
-          gridTemplateColumns={['1fr', '1fr 2fr']}
+          gridTemplateColumns={['1fr', '1fr 50rem']}
           gridGap="60px"
           paddingY="4rem"
           maxWidth={['100%', '80rem']}
-          minHeight="48rem"
-          minWidth="100%"
+          width="100%"
         >
           <Container
             height="100%"
             alignItems="stretch"
             flexDirection="column"
             gridGap="12px"
+            width="100%"
           >
             {experiences.map(({ data }, i) => (
               <Card
@@ -171,8 +171,8 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
                 <Image
                   src={`/logos/${data.slug}.png`}
                   alt={data.slug}
-                  width="55px"
-                  height="55px"
+                  width="40px"
+                  height="40px"
                   objectFit="contain"
                   className={styles.image}
                 />

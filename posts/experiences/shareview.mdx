@@ -2,28 +2,27 @@
 title: Shareview
 post: CTO
 date: 2020 - Now
-url: https://play.google.com/store/apps/details?id=fr.shareview.app
+url: https://shareview.fr/
 ---
 
-Since 2020, I'm working as the CTO of Shareview, a new social network that aims to share breathtaking video landscapes from all over the world.
-The team is small, there is one CEO and just one developer.
+- CTO of Shareview, a new social network that aims to share landscapes from all over the world.
 
-The challenge is huge: launching a social network from zero. An API, a website, a mobile app for Android and iOS, the encoding of the videos...
+- I designed the whole infrastructure on [AWS EKS](https://aws.amazon.com/eks/), Backend services and worked on the mobile application.
 
-I had to make choices on a scalable and efficient infrastructure. I deployed the whole infrastructure on [AWS](https://aws.amazon.com/) and all the backend
-side while also working on the mobile application. I'm also experimenting hosting some services on [IBM Cloud](https://cloud.ibm.com/).
+- The infrastructure is fully managed with [terraform](https://www.terraform.io/) and [ekstcl](https://eksctl.io/).
 
-The infrastructure has been created with [terraform](https://www.terraform.io/) and [ekstcl](https://eksctl.io/).
+- Backend services are written in [Go](https://golang.org/) and expose a [GraphQL API](https://graphql.org/).
 
-Shareview backend is composed of multiple services written [Go](https://golang.org/) in that consist of a [GraphQL API](https://graphql.org/) and background services that execute
-tasks such as video encoding.
+- Backend services communicates with a pub/sub queue, for tasks such as video encoding.
 
-Services use [AWS SQS](https://aws.amazon.com/sqs/) to communicate between each other and are
-deployed with [Helm charts](https://helm.sh/) on [Kubernetes](https://kubernetes.io/) on auto-scaled
-[AWS EKS](https://aws.amazon.com/eks/) cluster.
+- Deployment is automated with a CI/CD and [Helm charts](https://helm.sh/).
 
-For monitoring we use [Sentry](https://sentry.io/welcome/) and the EFK stack ([ElasticSearch](https://www.elastic.co/elasticsearch/),
+- Monitoring is made with [Sentry](https://sentry.io/) and EFK stack ([ElasticSearch](https://www.elastic.co/elasticsearch/),
 [Fluentd](https://www.fluentd.org/architecture) and [Kibana](https://www.elastic.co/guide/en/kibana/current/introduction.html)).
 
-The mobile application is made in [react-native](https://reactnative.dev/) with [expo](https://expo.io/) in
-[bare workflow](https://docs.expo.io/introduction/managed-vs-bare/#bare-workflow). Website is made with [next.js](https://nextjs.org/).
+- The mobile application is made in [react-native](https://reactnative.dev/) with [expo](https://expo.io/) in
+[bare workflow](https://docs.expo.io/introduction/managed-vs-bare/#bare-workflow).
+
+- Front-end is made with [next.js](https://nextjs.org/).
+
+- Beta available on [iOS](https://testflight.apple.com/join/SJlW5hKV) and [Android](https://play.google.com/store/apps/details?id=fr.shareview.app).
