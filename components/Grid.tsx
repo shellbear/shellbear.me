@@ -28,16 +28,25 @@ export type GridProps = GridGapProps &
 
 const Grid = styled.div<GridProps>`
   display: grid;
-  
-  grid-template-columns: ${({ children }) =>
-    children && css`repeat(${React.Children.toArray(children).length}, auto);`}
-  
-  ${compose(gridGap, alignItems, grid, padding, margin, layout, justifyItems)}
-  
+
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: end;
   justify-content: flex-end;
+
+  grid-template-columns:
+    ${({ children }) =>
+      children &&
+      css`repeat(${React.Children.toArray(children).length}, auto);`}
+    ${compose(
+      gridGap,
+      alignItems,
+      grid,
+      padding,
+      margin,
+      layout,
+      justifyItems,
+    )};
 `;
 
 Grid.defaultProps = {};
