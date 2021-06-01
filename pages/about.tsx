@@ -93,7 +93,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
   );
 
   return (
-    <Container gridGap="3rem">
+    <Container gridGap="">
       <Head>
         <title>About</title>
       </Head>
@@ -149,7 +149,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
           justifyItems={['center', 'flex-start']}
           alignItems="flex-start"
           gridTemplateColumns={['1fr', '1fr 50rem']}
-          gridGap="60px"
+          gridGap="60x"
           paddingY="4rem"
           maxWidth={['100%', '80rem']}
           width="100%"
@@ -166,6 +166,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
                 key={i}
                 selected={i == selected}
                 onClick={() => setSelected(i)}
+                gridTemplateColumns="1fr 3fr"
                 gridGap="15px"
               >
                 <Image
@@ -179,17 +180,40 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
                 <Grid
                   justifyItems="left"
                   gridGap="1px"
-                  gridTemplateColumns="1fr"
+                  gridTemplateColumns="100%"
                 >
                   <b>
                     {data.title} / {data.date}
                   </b>
-                  <small>{data.post}</small>
+                  <Container
+                    width="100%"
+                    alignItems="flex-start"
+                    justifyContent="space-between"
+                  >
+                    <small>{data.post}</small>
+                    <Container
+                      flexDirection="row"
+                      justifyContent="flex-start"
+                      width="100%"
+                    >
+                      <a href={`/about/${data.slug}`}>
+                        <Text
+                          margin={['0']}
+                          fontSize=".75rem"
+                          fontWeight="bold"
+                          display={['block', 'none']}
+                        >
+                          READ MORE ➔
+                        </Text>
+                      </a>
+                    </Container>
+                  </Container>
                 </Grid>
               </Card>
             ))}
           </Container>
           <Container
+            display={['none', 'block']}
             alignItems="flex-start"
             paddingBottom="3rem"
             height="100%"

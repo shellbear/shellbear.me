@@ -16,7 +16,7 @@ interface ProjectProps {
 }
 
 const Projects: React.FC<ProjectProps> = ({ projects }) => (
-  <Container>
+  <Container marginBottom="5rem">
     <Head>
       <title>Projects</title>
     </Head>
@@ -29,12 +29,14 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
       alignItems="flex-start"
     >
       <Container flexDirection="column" alignItems="flex-start" width="100%">
-        <Container flexDirection="row" alignItems="flex-start" gridGap="1rem">
+        <Container flexDirection="row" alignItems="center" gridGap="1rem">
           <Title fontSize="2.5rem">{projects[0].data.title}</Title>
           <Tag>Featured</Tag>
         </Container>
         <Container paddingY="1rem" gridGap="1rem">
-          <Text margin={0}>{projects[0].data.caption}</Text>
+          <Text textAlign="start" margin={0}>
+            {projects[0].data.caption}
+          </Text>
           <List marginY="1rem">
             {projects[0].data.tags.map((tag: string) => (
               <li key={tag}>{tag}</li>
@@ -65,7 +67,7 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
                 </Link>
               </Container>
               <Container gridGap="1rem">
-                <Text textAlign="initial" margin={0}>
+                <Text textAlign="start" margin={0}>
                   {data.caption}
                 </Text>
                 <List marginY="1rem">

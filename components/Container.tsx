@@ -10,6 +10,7 @@ import {
   textAlign,
   padding,
   margin,
+  display,
   compose,
   LayoutProps,
   AlignItemsProps,
@@ -20,6 +21,7 @@ import {
   FlexDirectionProps,
   PaddingProps,
   MarginProps,
+  DisplayProps,
   TextAlignProps,
 } from 'styled-system';
 
@@ -33,7 +35,8 @@ const Container = styled.div<
     TextAlignProps &
     AlignItemsProps &
     GridProps &
-    JustifyItemsProps
+    JustifyItemsProps &
+    DisplayProps
 >`
   display: flex;
   flex-direction: column;
@@ -50,6 +53,7 @@ const Container = styled.div<
     margin,
     textAlign,
     alignItems,
+    display,
   )};
 `;
 

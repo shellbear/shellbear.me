@@ -24,7 +24,7 @@ const About: NextPage<AboutProps> = ({ data, source }) => (
       <Head>
         <title>{data.title}</title>
       </Head>
-      <Title>
+      <Title fontSize="2.5rem">
         {data.post} @ {data.title}
       </Title>
       <Text>{data.date}</Text>

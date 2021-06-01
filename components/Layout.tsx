@@ -128,8 +128,7 @@ const Layout: React.FC<LayoutProps> = ({
         >
           <Link
             href="/"
-            fontSize="smaller"
-            fontWeight="normal"
+            fontSize={['1rem', '12px']}
             className="mobile"
             isSelected={router.pathname === '/'}
           >
