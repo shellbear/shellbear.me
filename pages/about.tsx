@@ -98,12 +98,23 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         <title>About</title>
       </Head>
       <Container alignContent="center" alignItems="center">
-        <Title fontSize={['48px', '74px']}>From student to CTO</Title>
-        <Container maxWidth={['100%', '700px']}>
+        <Title fontSize={['3rem', '4rem']}>Student &rarr; CTO</Title>
+        <Container maxWidth={['100%', '700px']} marginY="2rem">
           <Text>
-            CTO of <a href="https://shareview.fr/">Shareview </a>Freelancer
-            since my 18's and studying at&nbsp;
-            <a href="https://www.epitech.eu/en/">Epitech</a>.
+            I'm a 21-year-old student at{' '}
+            <a href="https://www.epitech.eu/en/">Epitech</a> in Paris currently
+            studying computer-science. I started working as a freelance
+            developer when I was 18.
+          </Text>
+          <Text>
+            Since 2020, I'm living in Seoul and I'm studying computer-science at{' '}
+            <a href="https://www.cau.ac.kr/">Chung-Ang</a> University.
+          </Text>
+          <Text>
+            During my free time I like going gym, doing some Bench Press, make
+            design and make video edits on After Effects. You can check some
+            some cool drone edits on my{' '}
+            <a href="https://instagram.com/croissant2france">Instagram</a>.
           </Text>
         </Container>
       </Container>

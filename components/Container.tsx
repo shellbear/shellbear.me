@@ -25,19 +25,19 @@ import {
   TextAlignProps,
 } from 'styled-system';
 
-const Container = styled.div<
-  LayoutProps &
-    AlignContentProps &
-    JustifyContentProps &
-    FlexDirectionProps &
-    PaddingProps &
-    MarginProps &
-    TextAlignProps &
-    AlignItemsProps &
-    GridProps &
-    JustifyItemsProps &
-    DisplayProps
->`
+export type ContainerProps = LayoutProps &
+  AlignContentProps &
+  JustifyContentProps &
+  FlexDirectionProps &
+  PaddingProps &
+  MarginProps &
+  TextAlignProps &
+  AlignItemsProps &
+  GridProps &
+  JustifyItemsProps &
+  DisplayProps;
+
+const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

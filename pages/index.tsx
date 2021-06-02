@@ -33,11 +33,9 @@ const Home: React.FC = () => {
         <Container maxWidth="700px" gridGap="3rem">
           <Container>
             <Text textAlign="center">
-              I'm a Full Stack developer with experience in DevOps,
-              Backend,&nbsp; Frontend and mobile development. I'm currently CTO
-              of&nbsp;
-              <a href="https://shareview.fr">Shareview</a> and living in
-              Seoul,&nbsp; South-Korea.
+              I'm a Full Stack developer with experience in DevOps, Backend,
+              Frontend and mobile development. I'm currently CTO of&nbsp;
+              <a href="https://shareview.fr">Shareview</a> and living in Seoul.
             </Text>
           </Container>
           <Link href="/about">
@@ -55,6 +53,7 @@ const Home: React.FC = () => {
           </Text>
           <Grid
             gridGap="2rem"
+            marginTop="2rem"
             gridTemplateColumns={['1fr', 'repeat(2, 1fr)']}
             justifyItems="stretch"
             alignItems="stretch"
