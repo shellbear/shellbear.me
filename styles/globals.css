@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 html,
 body {
   padding: 0;
@@ -7,8 +9,17 @@ body {
 }
 
 a {
-  color: inherit;
-  font-weight: bold;
+  color: black;
+  font-weight: 700;
+  display: inline-block;
+  transition: all 200ms ease;
+  text-decoration: none;
+  border-bottom: 2px solid black;
+}
+
+
+a:hover {
+  border-bottom-color: transparent;
 }
 
 * {

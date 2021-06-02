@@ -93,22 +93,17 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
   );
 
   return (
-    <Container gridGap="">
+    <Container>
       <Head>
         <title>About</title>
       </Head>
       <Container alignContent="center" alignItems="center">
         <Title fontSize={['48px', '74px']}>From student to CTO</Title>
-        <Container maxWidth={['100%', '60rem']}>
+        <Container maxWidth={['100%', '700px']}>
           <Text>
-            I'm passionated by computers since I'm young. I always helped my
-            family and friends to understand how stuff works.
-            <br />
-            <br />
-            During my high school years I discovered the world of cybersecurity.
-            I was writing malware for MacOS and Linux, created phishing pages,
-            fake hotspots, bruteforcing wifi networks, accessing cameras in my
-            town and playing with my jailbroken iPhone kernel.
+            CTO of <a href="https://shareview.fr/">Shareview </a>Freelancer
+            since my 18's and studying at&nbsp;
+            <a href="https://www.epitech.eu/en/">Epitech</a>.
           </Text>
         </Container>
       </Container>

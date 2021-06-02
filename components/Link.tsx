@@ -41,6 +41,8 @@ const Link = styled.a<LinkProps>`
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  border-bottom: none;
+  padding: 0;
 
   ${compose(opacity, color, fontWeight, fontSize, textTransform, background)}
 

@@ -30,18 +30,19 @@ const Home: React.FC = () => {
             I build cloud software.
           </Title>
         </Container>
-        <Container maxWidth="900px" gridGap="3rem">
+        <Container maxWidth="700px" gridGap="3rem">
           <Container>
             <Text textAlign="center">
-              I'm a Full Stack developer with experience in DevOps, Backend,
-              Frontend and mobile development. <br />
-              I'm currently <b>CTO</b> of <b>Shareview</b> and living in Seoul,
-              South-Korea.
+              I'm a Full Stack developer with experience in DevOps,
+              Backend,&nbsp; Frontend and mobile development. I'm currently CTO
+              of&nbsp;
+              <a href="https://shareview.fr">Shareview</a> and living in
+              Seoul,&nbsp; South-Korea.
             </Text>
           </Container>
-          <a href="/about">
+          <Link href="/about">
             <Button>More about me &rarr;</Button>
-          </a>
+          </Link>
         </Container>
       </Container>
 
@@ -74,7 +75,10 @@ const Home: React.FC = () => {
                 Say hello
               </Button>
             </Link>
-            <Link href="https://calendly.com/antoine-ordonez/intro">
+            <Link
+              target="_blank"
+              href="https://calendly.com/antoine-ordonez/intro"
+            >
               <Button
                 width="100%"
                 backgroundColor="rgb(226,232,240)"
