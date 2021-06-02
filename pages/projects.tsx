@@ -38,6 +38,10 @@ const ProjectTag = styled.li`
   letter-spacing: 0.03em;
 `;
 
+const ProjectButton = styled(Button)`
+  padding: 12px 30px;
+`;
+
 const Projects: React.FC<ProjectProps> = ({ projects }) => (
   <Container marginBottom="5rem">
     <Head>
@@ -70,7 +74,7 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
               <Title fontSize="2rem">{data.title}</Title>
             </Link>
             <Link href={data.url}>
-              <Button variant="secondary">View Project</Button>
+              <ProjectButton variant="secondary">View Project</ProjectButton>
             </Link>
           </Container>
           <Container gridGap="1rem">
