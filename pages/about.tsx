@@ -2,12 +2,6 @@ import React from 'react';
 import { Title, Text, Container, Grid, Link, Card } from '../components';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import path from 'path';
-import fs from 'fs';
-import matter, { GrayMatterFile } from 'gray-matter';
-import glob from 'fast-glob';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 
 import {
   SiGo,
@@ -23,21 +17,14 @@ import {
   SiPython,
   SiGraphql,
 } from 'react-icons/si';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-
-interface Experience extends GrayMatterFile<string> {
-  source: MDXRemoteSerializeResult;
-}
+import { getPosts, Post } from '../posts';
+import TransparentLink from '../components/TransparentLink';
 
 interface AboutProps {
-  experiences: Experience[];
+  experiences: Post[];
 }
 
 const About: React.FC<AboutProps> = ({ experiences }) => {
-  const [selected, setSelected] = React.useState(0);
-  const { data, source } = experiences[selected];
-
   const stacks = React.useMemo(
     () => [
       {
@@ -127,7 +114,9 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         textAlign="center"
         width="100%"
       >
-        <Title fontSize="40px">Technologies I frequently use</Title>
+        <Title fontSize="40px" as="h2">
+          Technologies I frequently use
+        </Title>
         <Grid
           gridTemplateColumns={['repeat(3 , 1fr)', 'repeat(6 , 1fr)']}
           gridGap="1rem"
@@ -143,133 +132,73 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
           ))}
         </Grid>
       </Container>
-
       <Container
         alignContent="center"
         alignItems="center"
         textAlign="center"
         width="100%"
+        paddingBottom="4rem"
+        gridGap="3rem"
       >
-        <Title fontSize="40px">Work Experiences</Title>
-        <Grid
-          justifyItems={['center', 'flex-start']}
-          alignItems="flex-start"
-          gridTemplateColumns={['1fr', '1fr 50rem']}
-          gridGap="60x"
-          paddingY="4rem"
-          maxWidth={['100%', '80rem']}
-          width="100%"
-        >
-          <Container
-            height="100%"
-            alignItems="stretch"
-            flexDirection="column"
-            gridGap="12px"
-            width="100%"
-          >
-            {experiences.map(({ data }, i) => (
-              <Card
+        <Title fontSize="40px" as="h2">
+          Work Experiences
+        </Title>
+        <Container width="100%">
+          {experiences.map(({ data }, i) => (
+            <TransparentLink href={`/about/${data.slug}`}>
+              <Grid
                 key={i}
-                selected={i == selected}
-                onClick={() => setSelected(i)}
-                gridTemplateColumns="1fr 3fr"
-                gridGap="15px"
+                gridTemplateColumns="1fr 4fr"
+                justifyItems="flex-start"
+                gridGap="1rem"
+                paddingY="2rem"
+                style={{ borderBottom: '1px solid rgba(0,0,0,0.1)' }}
               >
-                <Image
-                  src={`/logos/${data.slug}.png`}
-                  alt={data.slug}
-                  width="40px"
-                  height="40px"
-                  objectFit="contain"
-                  className={styles.image}
-                />
-                <Grid
-                  justifyItems="left"
-                  gridGap="1px"
-                  gridTemplateColumns="100%"
-                >
-                  <b>
-                    {data.title} / {data.date}
-                  </b>
+                <Container width="100%">
+                  <Text>0{experiences.length - i}</Text>
+                </Container>
+                <Grid width="100%" gridTemplateColumns="4fr 1fr">
                   <Container
                     width="100%"
                     alignItems="flex-start"
-                    justifyContent="space-between"
+                    textAlign="start"
                   >
-                    <small>{data.post}</small>
-                    <Container
-                      flexDirection="row"
-                      justifyContent="flex-start"
+                    <Grid
                       width="100%"
+                      gridTemplateColumns="repeat(2, auto)"
+                      justifyItems="flex-start"
+                      justifyContent="flex-start"
+                      gridGap="1rem"
                     >
-                      <a href={`/about/${data.slug}`}>
-                        <Text
-                          margin={['0']}
-                          fontSize=".75rem"
-                          fontWeight="bold"
-                          display={['block', 'none']}
-                        >
-                          READ MORE ➔
-                        </Text>
-                      </a>
-                    </Container>
+                      <Title fontSize="1.5rem" margin={0} as="h3">
+                        {data.title}
+                      </Title>
+                      <Text
+                        fontSize="smaller"
+                        margin={0}
+                        color="rgba(0, 0, 0, 0.1)"
+                      >
+                        {data.date}
+                      </Text>
+                    </Grid>
+                    <Text fontSize="1rem">{data.caption}</Text>
                   </Container>
+                  <Text fontSize="1.5rem">&rarr;</Text>
                 </Grid>
-              </Card>
-            ))}
-          </Container>
-          <Container
-            display={['none', 'block']}
-            alignItems="flex-start"
-            paddingBottom="3rem"
-            height="100%"
-            width="100%"
-          >
-            <Container alignItems="center" width="100%">
-              <Title fontSize="2rem">
-                {data.post}
-                {' @ '}
-                <Link textDecoration="underline" href={data.url}>
-                  {data.title}
-                </Link>
-              </Title>
-            </Container>
-            <Container maxWidth="100%" textAlign="justify">
-              <MDXRemote {...source} />
-            </Container>
-          </Container>
-        </Grid>
+              </Grid>
+            </TransparentLink>
+          ))}
+        </Container>
       </Container>
     </Container>
   );
 };
 
-const baseDir = path.join(process.cwd(), './posts/experiences/');
-const contentGlob = path.join(baseDir, '/*.mdx');
-
 export const getStaticProps: GetStaticProps = async () => {
-  const files = glob.sync(contentGlob);
-  const experiences = (
-    await Promise.all(
-      files.map(async (file) => {
-        const basename = path.basename(file);
-        const slug = basename.replace('.mdx', '');
-        const raw = fs.readFileSync(file, 'utf8');
-        const { data, content } = matter(raw);
-
-        data.slug = slug;
-        const source = await serialize(content, {
-          scope: data,
-        });
-
-        return { data, content: content.trim(), source };
-      }),
-    )
-  ).sort((first, second) => {
-    return second.data.date
-      .toString()
-      .localeCompare(first.data.date.toString());
-  });
+  const experiences = await getPosts('experiences');
+  experiences.sort((a, b) =>
+    b.data.date.toString().localeCompare(a.data.date.toString()),
+  );
 
   return {
     props: {

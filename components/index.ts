@@ -7,3 +7,5 @@ export { default as Title } from './Title';
 export { default as Container } from './Container';
 export { default as Tag } from './Tag';
 export { default as Card } from './Card';
+export { default as Image } from './Image';
+export { default as TransparentLink } from './TransparentLink';

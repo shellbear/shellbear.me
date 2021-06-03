@@ -2,29 +2,23 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import {
   gridGap,
-  padding,
-  margin,
+  space,
   grid,
   layout,
-  justifyItems,
-  alignItems,
+  flexbox,
   compose,
   GridProps as StyledGridProps,
   LayoutProps,
-  JustifyItemsProps,
-  AlignItemsProps,
   GridGapProps,
-  PaddingProps,
-  MarginProps,
+  SpaceProps,
+  FlexboxProps,
 } from 'styled-system';
 
 export type GridProps = GridGapProps &
-  PaddingProps &
-  MarginProps &
+  SpaceProps &
   StyledGridProps &
   LayoutProps &
-  JustifyItemsProps &
-  AlignItemsProps;
+  FlexboxProps;
 
 const Grid = styled.div<GridProps>`
   display: grid;
@@ -38,15 +32,7 @@ const Grid = styled.div<GridProps>`
     ${({ children }) =>
       children &&
       css`repeat(${React.Children.toArray(children).length}, auto);`}
-    ${compose(
-      gridGap,
-      alignItems,
-      grid,
-      padding,
-      margin,
-      layout,
-      justifyItems,
-    )};
+    ${compose(gridGap, grid, space, layout, flexbox)};
 `;
 
 Grid.defaultProps = {};

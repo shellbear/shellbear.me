@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import {
   color,
   background,
+  layout,
   ColorProps,
   compose,
   fontSize,
@@ -11,6 +12,7 @@ import {
   FontWeightProps,
   opacity,
   OpacityProps,
+  LayoutProps,
   system,
 } from 'styled-system';
 import { Property } from 'csstype';
@@ -35,7 +37,8 @@ type LinkProps = Props &
   FontWeightProps &
   FontSizeProps &
   TextTransformProps &
-  BackgroundProps;
+  BackgroundProps &
+  LayoutProps;
 
 const Link = styled.a<LinkProps>`
   color: inherit;
@@ -44,7 +47,15 @@ const Link = styled.a<LinkProps>`
   border-bottom: none;
   padding: 0;
 
-  ${compose(opacity, color, fontWeight, fontSize, textTransform, background)}
+  ${compose(
+    opacity,
+    color,
+    fontWeight,
+    fontSize,
+    textTransform,
+    background,
+    layout,
+  )}
 
   ${({ isSelected }) =>
     isSelected &&
