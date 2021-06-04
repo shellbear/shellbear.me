@@ -152,7 +152,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
                 justifyItems="flex-start"
                 gridGap="1rem"
                 paddingY="2rem"
-                style={{ borderBottom: '1px solid rgba(0,0,0,0.1)' }}
+                borderBottom="1px solid rgba(0,0,0,0.1)"
               >
                 <Container width="100%">
                   <Text>0{experiences.length - i}</Text>

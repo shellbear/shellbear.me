@@ -1,6 +1,6 @@
 import React from 'react';
 import glob from 'fast-glob';
-import { Container, Title, Text, Grid, Card, Image } from '../../components';
+import { Container, Title, Text, Grid } from '../../components';
 import { join } from 'path';
 import { NextPage, GetStaticPaths, GetStaticPropsResult } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -34,10 +34,15 @@ const About: NextPage<AboutProps> = ({ experiences, data, source }) => (
       </Grid>
     </Container>
     <MDXRemote {...source} />
-    <Container alignContent="center">
-      <a href={data.url} target="_blank">
-        Website
-      </a>
+    <Container
+      alignContent="center"
+      textAlign="center"
+      borderBottom="1px solid rgba(0,0,0,0.1)"
+      padding="40px 0"
+    >
+      <Text fontSize="16px" lineHeight="35px">
+        <a href={data.url}>website</a>
+      </Text>
     </Container>
     <Container width="100%" alignContent="center">
       <Container
@@ -49,46 +54,52 @@ const About: NextPage<AboutProps> = ({ experiences, data, source }) => (
         <Title fontSize="2rem" as="h3">
           Other experiences
         </Title>
-        <Grid
-          gridGap=".5rem"
-          justifyItems="center"
-          width="100%"
-          gridTemplateColumns={[
-            'repeat(2, 1fr)',
-            `repeat(${experiences.length}, 1fr)`,
-          ]}
-        >
-          {experiences.map((exp, i) => (
-            <TransparentLink
-              key={i}
-              href={`/about/${exp.data.slug}`}
-              width="100%"
-              height="100%"
-            >
-              <Card
-                width="100%"
-                height="100%"
-                gridTemplateColumns="auto 100%"
+        <Container width="100%">
+          {experiences.map(({ data }, i) => (
+            <TransparentLink href={`/about/${data.slug}`}>
+              <Grid
+                key={i}
+                gridTemplateColumns="1fr 4fr"
+                justifyItems="flex-start"
                 gridGap="1rem"
+                paddingY="2rem"
+                borderBottom="1px solid rgba(0,0,0,0.1)"
               >
-                <Image
-                  alt="logo"
-                  src={exp.data.preview}
-                  width="30px"
-                  height="auto"
-                />
-                <Grid gridTemplateColumns="1fr" justifyItems="flex-start">
-                  <Title as="h3" fontSize="1rem" margin={0}>
-                    {exp.data.title}
-                  </Title>
-                  <Text fontSize="0.8rem" margin={0}>
-                    {exp.data.date}
-                  </Text>
+                <Container width="100%">
+                  <Text>0{experiences.length - i}</Text>
+                </Container>
+                <Grid width="100%" gridTemplateColumns="4fr 1fr">
+                  <Container
+                    width="100%"
+                    alignItems="flex-start"
+                    textAlign="start"
+                  >
+                    <Grid
+                      width="100%"
+                      gridTemplateColumns="repeat(2, auto)"
+                      justifyItems="flex-start"
+                      justifyContent="flex-start"
+                      gridGap="1rem"
+                    >
+                      <Title fontSize="1.5rem" margin={0} as="h3">
+                        {data.title}
+                      </Title>
+                      <Text
+                        fontSize="smaller"
+                        margin={0}
+                        color="rgba(0, 0, 0, 0.1)"
+                      >
+                        {data.date}
+                      </Text>
+                    </Grid>
+                    <Text fontSize="1rem">{data.caption}</Text>
+                  </Container>
+                  <Text fontSize="1.5rem">&rarr;</Text>
                 </Grid>
-              </Card>
+              </Grid>
             </TransparentLink>
           ))}
-        </Grid>
+        </Container>
       </Container>
     </Container>
   </Container>
@@ -132,10 +143,7 @@ export const getStaticProps = async ({
 
   return {
     props: {
-      experiences: [
-        ...experiences.slice(0, index),
-        ...experiences.slice(index + 1),
-      ].sort((a, b) =>
+      experiences: experiences.sort((a, b) =>
         b.data.date.toString().localeCompare(a.data.date.toString()),
       ),
       data,

@@ -10,6 +10,8 @@ import {
   textAlign,
   padding,
   margin,
+  color,
+  borders,
   display,
   compose,
   LayoutProps,
@@ -23,6 +25,8 @@ import {
   MarginProps,
   DisplayProps,
   TextAlignProps,
+  ColorProps,
+  BordersProps,
 } from 'styled-system';
 
 export type ContainerProps = LayoutProps &
@@ -35,6 +39,8 @@ export type ContainerProps = LayoutProps &
   AlignItemsProps &
   GridProps &
   JustifyItemsProps &
+  ColorProps &
+  BordersProps &
   DisplayProps;
 
 const Container = styled.div<ContainerProps>`
@@ -50,9 +56,11 @@ const Container = styled.div<ContainerProps>`
     layout,
     flexDirection,
     padding,
+    borders,
     margin,
     textAlign,
     alignItems,
+    color,
     display,
   )};
 `;

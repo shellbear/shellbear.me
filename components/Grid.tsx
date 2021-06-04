@@ -6,19 +6,22 @@ import {
   grid,
   layout,
   flexbox,
+  borders,
   compose,
   GridProps as StyledGridProps,
   LayoutProps,
   GridGapProps,
   SpaceProps,
   FlexboxProps,
+  BordersProps,
 } from 'styled-system';
 
 export type GridProps = GridGapProps &
   SpaceProps &
   StyledGridProps &
   LayoutProps &
-  FlexboxProps;
+  FlexboxProps &
+  BordersProps;
 
 const Grid = styled.div<GridProps>`
   display: grid;
@@ -32,7 +35,7 @@ const Grid = styled.div<GridProps>`
     ${({ children }) =>
       children &&
       css`repeat(${React.Children.toArray(children).length}, auto);`}
-    ${compose(gridGap, grid, space, layout, flexbox)};
+    ${compose(gridGap, grid, space, layout, flexbox, borders)};
 `;
 
 Grid.defaultProps = {};
