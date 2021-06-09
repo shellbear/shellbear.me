@@ -18,14 +18,19 @@ const Home: React.FC = () => (
       <Container alignItems="center" alignContent="center">
         <Image
           src="/me.jpg"
-          alt="me"
+          alt="Antoine Ordonez"
           width="120px"
           height="120px"
           objectFit="cover"
           className={styles.image}
         />
         <Title>Antoine Ordonez</Title>
-        <Title fontSize="2rem" color="rgba(0, 0, 0, 0.6)" fontWeight="500">
+        <Title
+          fontSize="2rem"
+          color="rgba(0, 0, 0, 0.6)"
+          fontWeight="500"
+          as="h2"
+        >
           I build cloud software.
         </Title>
       </Container>
@@ -45,7 +50,9 @@ const Home: React.FC = () => (
 
     <Container alignItems="center" paddingY="4rem">
       <Container maxWidth="600px" alignItems="center" alignContent="center">
-        <Title fontSize="3rem">Get in touch</Title>
+        <Title fontSize="3rem" as="h3">
+          Get in touch
+        </Title>
         <Text textAlign="center">
           Although I'm not actively looking for job opportunities, my inbox is
           still open for you. Feel free to ask me anything!

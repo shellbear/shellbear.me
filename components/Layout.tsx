@@ -107,6 +107,10 @@ const Layout: React.FC<LayoutProps> = ({
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta charSet="utf-8" />
+        <meta name="author" content="Antoine Ordonez" />
+        <meta name="keywords" content="HTML, CSS, JavaScript" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Nav>
         <Link

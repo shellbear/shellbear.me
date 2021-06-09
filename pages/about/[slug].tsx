@@ -27,7 +27,7 @@ const About: NextPage<AboutProps> = ({ experiences, data, source }) => (
       </Head>
       <Grid gridTemplateColumns="1fr" justifyItems="center">
         <img alt="logo" src={data.preview} width="100rem" height="auto" />
-        <Title fontSize="2rem" marginTop="2rem">
+        <Title fontSize="2rem" marginTop="2rem" as="h2">
           {data.post} @ {data.title}
         </Title>
         <Text margin={0}>{data.date}</Text>
@@ -56,7 +56,7 @@ const About: NextPage<AboutProps> = ({ experiences, data, source }) => (
         </Title>
         <Container width="100%">
           {experiences.map(({ data }, i) => (
-            <TransparentLink href={`/about/${data.slug}`}>
+            <TransparentLink href={`/about/${data.slug}`} key={data.slug}>
               <Grid
                 key={i}
                 gridTemplateColumns="1fr 4fr"

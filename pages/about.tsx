@@ -85,7 +85,9 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         <title>About</title>
       </Head>
       <Container alignContent="center" alignItems="center">
-        <Title fontSize={['3rem', '4rem']}>Student &rarr; CTO</Title>
+        <Title fontSize={['3rem', '4rem']} as="h2">
+          Student &rarr; CTO
+        </Title>
         <Container maxWidth={['100%', '700px']} marginY="2rem">
           <Text>
             I'm a 21-year-old student at{' '}
@@ -145,7 +147,7 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         </Title>
         <Container width="100%">
           {experiences.map(({ data }, i) => (
-            <TransparentLink href={`/about/${data.slug}`}>
+            <TransparentLink href={`/about/${data.slug}`} key={data.slug}>
               <Grid
                 key={i}
                 gridTemplateColumns="1fr 4fr"

@@ -56,6 +56,7 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
     >
       {projects.map(({ data }) => (
         <ProjectContainer
+          key={data.slug}
           flexDirection="column"
           alignItems="flex-start"
           width="100%"
@@ -71,7 +72,9 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
             width="100%"
           >
             <Link href={data.url}>
-              <Title fontSize="2rem">{data.title}</Title>
+              <Title fontSize="2rem" as="h2">
+                {data.title}
+              </Title>
             </Link>
             <Link href={data.url}>
               <ProjectButton variant="secondary">View Project</ProjectButton>
