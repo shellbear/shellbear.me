@@ -111,6 +111,24 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="author" content="Antoine Ordonez" />
         <meta name="keywords" content="HTML, CSS, JavaScript" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-RZP6RWZ32F"
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+      
+                  gtag('config', 'G-RZP6RWZ32F');`,
+              }}
+            />
+          </>
+        )}
       </Head>
       <Nav>
         <Link
