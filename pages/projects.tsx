@@ -47,7 +47,14 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
     <Head>
       <title>Projects</title>
     </Head>
-    <Title>Projects</Title>
+    <Container alignItems="center">
+      <Title>Projects</Title>
+      <Text textAlign="center">
+        I'm always working on new projects. <br />
+        You can find them on my&nbsp;
+        <a href="https://github.com/shellbear">Github</a>.
+      </Text>
+    </Container>
     <Grid
       py="4rem"
       gridTemplateColumns={['1fr', 'repeat(2, 1fr)']}

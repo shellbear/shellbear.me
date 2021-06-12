@@ -6,6 +6,7 @@ import {
   fontWeight,
   display,
   typography,
+  layout,
   compose,
   TextAlignProps,
   MarginProps,
@@ -13,6 +14,7 @@ import {
   DisplayProps,
   FontSizeProps,
   TypographyProps,
+  LayoutProps,
 } from 'styled-system';
 
 const Text = styled.p<
@@ -21,7 +23,8 @@ const Text = styled.p<
     FontSizeProps &
     FontWeightProps &
     DisplayProps &
-    TypographyProps
+    TypographyProps &
+    LayoutProps
 >`
   font-size: 1.125rem;
   margin: 0.75rem 0;
@@ -30,7 +33,15 @@ const Text = styled.p<
   line-height: 160%;
   letter-spacing: 0.02em;
 
-  ${compose(textAlign, margin, fontSize, fontWeight, display, typography)}
+  ${compose(
+    textAlign,
+    margin,
+    fontSize,
+    fontWeight,
+    display,
+    typography,
+    layout,
+  )}
 `;
 
 export default Text;
