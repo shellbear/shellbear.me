@@ -69,7 +69,7 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
           width="100%"
           gridGap="1.5rem"
         >
-          <Link href={data.url}>
+          <Link href={data.url} width="100%">
             <ProjectImage src={data.preview} />
           </Link>
           <Container
