@@ -54,3 +54,7 @@ a:hover {
   height: 100%;
   border: 0;
 }
+
+.notion-viewport {
+  z-index: -1;
+}
