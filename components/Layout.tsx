@@ -157,7 +157,7 @@ const Layout: React.FC<LayoutProps> = ({
         </Link>
         <Grid
           gridGap={['2rem', '40px']}
-          gridTemplateColumns={['repeat(3, 1fr)', 'repeat(4, auto)']}
+          gridTemplateColumns={['repeat(4, 1fr)', 'repeat(4, auto)']}
           justifyItems="center"
         >
           <Link
@@ -177,6 +177,16 @@ const Layout: React.FC<LayoutProps> = ({
             isSelected={router.pathname === '/about'}
           >
             About
+          </Link>
+          <Link
+            textTransform="uppercase"
+            fontWeight="bold"
+            fontSize={['1rem', '12px']}
+            opacity={0.7}
+            href="/blog"
+            isSelected={router.pathname === '/blog'}
+          >
+            Blog
           </Link>
           <Link
             textTransform="uppercase"

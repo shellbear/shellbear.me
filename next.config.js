@@ -1,7 +1,4 @@
 module.exports = {
-  future: {
-    webpack5: true,
-  },
   target: 'serverless',
   webpack: (config, { isServer }) => {
     if (!isServer) {
