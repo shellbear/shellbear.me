@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticPropsResult, NextPage } from 'next';
 import { NotionRenderer, NotionRendererProps, Code } from 'react-notion-x';
 import { NotionAPI } from 'notion-client';
 import { getPageFromPage, PageInfo, POSTS } from '../../posts/notion';
-import { Container, Image, Title } from '../../components';
+import { Container } from '../../components';
 import Head from 'next/head';
 
 interface BlogProps {
@@ -15,24 +15,9 @@ const Blog: NextPage<BlogProps> = ({ page, recordMap }) => (
     <Head>
       <title>{page.title}</title>
     </Head>
-    <Container mb="3rem" alignItems="center" gridGap="1.5rem">
-      {page.cover && (
-        <Image
-          src={page.cover}
-          width="100%"
-          height="30vh"
-          alt={page.title}
-          loading="lazy"
-          decoding="async"
-          style={{
-            objectPosition: `center ${(1 - (page.coverPosition ?? 0)) * 100}%`,
-            objectFit: 'cover',
-          }}
-        />
-      )}
-      <Title fontSize="2.5rem">{page.title}</Title>
-    </Container>
     <NotionRenderer
+      fullPage
+      className="notion-container"
       recordMap={recordMap}
       components={{
         code: Code,

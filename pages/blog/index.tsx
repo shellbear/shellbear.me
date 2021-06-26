@@ -26,7 +26,7 @@ const Blog: NextPage<BlogProps> = ({ pages }) => {
           I like writing some stuff about tech and code. Check it out.
         </Text>
       </Container>
-      <Grid gridTemplateColumns={['1fr', '1fr 1fr']} gridGap="2rem">
+      <Grid gridTemplateColumns="1fr" gridGap="2rem">
         {pages.map(({ title, uri, cover }, i) => (
           <Link key={i} href={uri}>
             <Card>
