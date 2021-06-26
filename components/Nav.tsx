@@ -1,27 +1,43 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import Grid from './Grid';
-import TransparentLink from './TransparentLink';
 import Container from './Container';
+import styled from 'styled-components';
 
 const states: { [key: string]: React.CSSProperties } = {
   '/': {
     left: '6px',
-    width: '60px',
+    width: '61px',
   },
   '/about': {
     left: '81px',
-    width: '60px',
+    width: '65px',
   },
   '/blog': {
     left: '157px',
-    width: '50px',
+    width: '55px',
   },
   '/projects': {
     left: '224px',
-    width: '72px',
+    width: '79px',
   },
 };
+
+const NavLink = styled.a`
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  font-weight: 500;
+  transition: opacity 0.3s ease 0s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+`;
 
 const Nav = (): JSX.Element => {
   const router = useRouter();
@@ -37,44 +53,51 @@ const Nav = (): JSX.Element => {
   }
 
   return (
-    <Container as="nav" alignContent="center" margin="3rem">
-      <Grid
-        gridGap="2rem"
-        alignItems="center"
-        justifyItems="center"
-        gridTemplateColumns="repeat(4, auto)"
-        style={{
-          borderRadius: '25px',
-          background: 'rgba(0, 0, 0, 0.04)',
-          padding: '15px',
-          position: 'relative',
-        }}
-      >
-        <div
+    <Grid
+      as="nav"
+      alignContent="center"
+      justifyContent="space-between"
+      my="3rem"
+      gridTemplateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
+    >
+      <Container display={['none', 'none', 'flex']}>
+        <NavLink href="/">Antoine Ordonez</NavLink>
+      </Container>
+      <Container alignContent="center">
+        <Grid
+          width="fit-content"
+          gridGap="2rem"
+          alignItems="center"
+          justifyItems="center"
+          gridTemplateColumns="repeat(4, auto)"
           style={{
-            background: 'white',
-            position: 'absolute',
             borderRadius: '25px',
-            height: '85%',
-            left: '6px',
-            width: '60px',
-            ...navStyle,
+            background: 'rgba(0, 0, 0, 0.04)',
+            padding: '15px',
+            position: 'relative',
           }}
-        />
-        <TransparentLink href="/" style={{ zIndex: 1 }}>
-          Home
-        </TransparentLink>
-        <TransparentLink href="/about" style={{ zIndex: 1 }}>
-          About
-        </TransparentLink>
-        <TransparentLink href="/blog" style={{ zIndex: 1 }}>
-          Blog
-        </TransparentLink>
-        <TransparentLink href="/projects" style={{ zIndex: 1 }}>
-          Projects
-        </TransparentLink>
-      </Grid>
-    </Container>
+        >
+          <div
+            style={{
+              background: 'white',
+              position: 'absolute',
+              borderRadius: '25px',
+              height: '85%',
+              left: '6px',
+              width: '60px',
+              ...navStyle,
+            }}
+          />
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/about">About</NavLink>
+          <NavLink href="/blog">Blog</NavLink>
+          <NavLink href="/projects">Projects</NavLink>
+        </Grid>
+      </Container>
+      <Container alignContent="flex-end" display={['none', 'none', 'flex']}>
+        <NavLink href="mailto:hello@shellbear.me">Contact</NavLink>
+      </Container>
+    </Grid>
   );
 };
 
