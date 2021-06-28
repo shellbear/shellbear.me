@@ -4,6 +4,8 @@ import { getPageTitle } from 'notion-utils';
 export const POSTS = {
   'go-graphql-api':
     'shblog/Production-ready-API-with-Go-and-GraphQL-4ebc1ab551e447c2ac14261a61da6032',
+  'go-dokku-deployment':
+    'shblog/Deploying-a-Go-App-with-Dokku-c504be4c35b34d20918a5cf23c0c5588',
 };
 
 export interface PageInfo {
