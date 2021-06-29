@@ -2,10 +2,14 @@ import { ExtendedRecordMap } from 'notion-types/src/maps';
 import { getPageTitle } from 'notion-utils';
 
 export const POSTS = {
-  'go-graphql-api':
-    'shblog/Production-ready-API-with-Go-and-GraphQL-4ebc1ab551e447c2ac14261a61da6032',
-  'go-dokku-deployment':
-    'shblog/Deploying-a-Go-App-with-Dokku-c504be4c35b34d20918a5cf23c0c5588',
+  'go-graphql-api': {
+    date: new Date('2021-06-25').toDateString(),
+    uri: 'shblog/Production-ready-API-with-Go-and-GraphQL-4ebc1ab551e447c2ac14261a61da6032',
+  },
+  'go-dokku-deployment': {
+    date: new Date('2021-06-28').toDateString(),
+    uri: 'shblog/Deploying-a-Go-App-with-Dokku-c504be4c35b34d20918a5cf23c0c5588',
+  },
 };
 
 export interface PageInfo {
@@ -14,7 +18,12 @@ export interface PageInfo {
   coverPosition?: number;
 }
 
-export const getPageFromPage = (page: ExtendedRecordMap): PageInfo => {
+export interface Page extends PageInfo {
+  uri: string;
+  date: string;
+}
+
+export const getPageInfo = (page: ExtendedRecordMap): PageInfo => {
   const info: PageInfo = {
     title: getPageTitle(page),
   };

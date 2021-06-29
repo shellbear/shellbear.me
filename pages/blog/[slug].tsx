@@ -1,12 +1,12 @@
 import { GetStaticPaths, GetStaticPropsResult, NextPage } from 'next';
 import { NotionRenderer, NotionRendererProps, Code } from 'react-notion-x';
 import { NotionAPI } from 'notion-client';
-import { getPageFromPage, PageInfo, POSTS } from '../../posts/notion';
-import { Container } from '../../components';
+import { getPageInfo, Page, POSTS } from '../../posts/notion';
+import { Container, Text } from '../../components';
 import Head from 'next/head';
 
 interface BlogProps {
-  page: PageInfo;
+  page: Page;
   recordMap: NotionRendererProps['recordMap'];
 }
 
@@ -14,6 +14,7 @@ const Blog: NextPage<BlogProps> = ({ page, recordMap }) => (
   <Container width={['100%', 1200]} maxWidth="100vw">
     <Head>
       <title>{page.title}</title>
+      <meta property="og:title" content={page.title} />
     </Head>
     <NotionRenderer
       fullPage
@@ -23,6 +24,10 @@ const Blog: NextPage<BlogProps> = ({ page, recordMap }) => (
         code: Code,
       }}
     />
+    <Container textAlign="center" gridGap=".4rem" my="3rem">
+      <Text margin={0}>Antoine Ordonez</Text>
+      <small>{page.date}</small>
+    </Container>
   </Container>
 );
 
@@ -48,8 +53,14 @@ const notion = new NotionAPI();
 export const getStaticProps = async ({
   params: { slug },
 }: Params): Promise<GetStaticPropsResult<BlogProps>> => {
-  const recordMap = await notion.getPage(POSTS[slug]);
-  const page = getPageFromPage(recordMap);
+  const { uri, date } = POSTS[slug];
+  const recordMap = await notion.getPage(uri);
+  const pageInfo = getPageInfo(recordMap);
+  const page: Page = {
+    ...pageInfo,
+    uri,
+    date,
+  };
 
   return {
     props: {
