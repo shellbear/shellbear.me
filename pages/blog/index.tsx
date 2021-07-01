@@ -25,7 +25,12 @@ const Blog: NextPage<BlogProps> = ({ pages }) => {
       <Container mb="3rem">
         <Title>Blog</Title>
         <Text textAlign="center">
-          Posts about code, projects and various other things.
+          Posts about code, projects and various other things. <br />
+          An RSS feed is available at this{' '}
+          <a target="_blank" href="/blog/feed.xml">
+            link
+          </a>
+          .
         </Text>
       </Container>
       <Grid gridTemplateColumns={['1fr', '1fr 1fr']} gridGap="2rem">
