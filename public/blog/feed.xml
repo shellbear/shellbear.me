@@ -16,6 +16,17 @@
       <url>https://shellbear.me/logo.jpg</url>
     </image>
     <item>
+      <title>Rapid UI development with styled-system</title>
+      <description>
+        Since few years now, I'm building UI of my projects with React, Next.js and styled-components.&lt;br/&gt;
+        I like writing my own components and reuse them across my projects.&lt;br/&gt;
+        The problem is I often spent some time writing props for my styled components when I had make them mobile friendly
+        with Media Queries, or duplicating props like margin, padding, flex...
+      </description>
+      <link>https://shellbear.me/blog/styled-system</link>
+      <pubDate>Tue, 06 Jul 2021 12:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Deploying a Go App with Dokku</title>
       <description>
         Dokku is an easy and cost-effective approach to deploy your project in a language-agnostic way.&lt;br/&gt;

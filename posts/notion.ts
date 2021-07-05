@@ -10,6 +10,10 @@ export const POSTS = {
     date: new Date('2021-06-28').toDateString(),
     uri: 'shblog/Deploying-a-Go-App-with-Dokku-c504be4c35b34d20918a5cf23c0c5588',
   },
+  'styled-system': {
+    date: new Date('2021-07-06').toDateString(),
+    uri: 'shblog/Rapid-UI-development-with-styled-system-e1ce2f8a2e64485491b49e4e3a6a8f96',
+  },
 };
 
 export const EXPERIENCES = {

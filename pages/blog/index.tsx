@@ -97,7 +97,9 @@ export const getStaticProps = async (): Promise<
 
   return {
     props: {
-      pages: pages,
+      pages: pages.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+      ),
     },
   };
 };

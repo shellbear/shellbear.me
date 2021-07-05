@@ -8,6 +8,7 @@ import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism.css';
 import 'prismjs/prism.js';
 import 'prismjs/components/prism-go';
+import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-graphql';
 import 'prismjs/components/prism-bash';
 
