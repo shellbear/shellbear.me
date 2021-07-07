@@ -81,7 +81,7 @@ const Footer = (): JSX.Element => {
         ))}
       </FooterGrid>
       <Text margin={0} fontSize="0.9rem" color="rgba(0, 0, 0, 0.7)">
-        @ {new Date().getFullYear()} Antoine Ordonez
+        © {new Date().getFullYear()} Antoine Ordonez
       </Text>
     </StyledFooter>
   );
