@@ -1,18 +1,6 @@
 {
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": ["prettier", "import"],
+  "extends": ["next", "next/core-web-vitals", "prettier"],
   "rules": {
-    "prettier/prettier": "error"
-  },
-  "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    },
-    "import/resolver": {
-      "typescript": {}
-    }
+    "@next/next/no-html-link-for-pages": 0
   }
 }

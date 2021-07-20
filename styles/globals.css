@@ -15,7 +15,6 @@ a {
   border-bottom: 2px solid black;
 }
 
-
 a:hover {
   border-bottom-color: transparent;
 }
@@ -25,16 +24,16 @@ a:hover {
 }
 
 .mobile {
-  display: none
+  display: none;
 }
 
 @media (max-width: 640px) {
   .mobile {
-    display: block
+    display: block;
   }
 
   .desktop {
-    display: none
+    display: none;
   }
 }
 

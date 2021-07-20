@@ -90,14 +90,14 @@ const About: React.FC<AboutProps> = ({ experiences }) => {
         </Title>
         <Container maxWidth={['100%', '700px']} marginY="2rem">
           <Text>
-            I'm a 21-year-old student at{' '}
+            I&apos;m a 21-year-old student at{' '}
             <a href="https://www.epitech.eu/en/">Epitech</a> in Paris currently
             studying computer-science. I started working as a freelance
             developer when I was 18.
           </Text>
           <Text>
-            Since 2020, I'm living in Seoul and I'm studying computer-science at{' '}
-            <a href="https://www.cau.ac.kr/">Chung-Ang</a> University.
+            Since 2020, I&apos;m living in Seoul and studying computer-science
+            at <a href="https://www.cau.ac.kr/">Chung-Ang</a> University.
           </Text>
           <Text>
             During my free time I like going gym, doing some Bench Press, make

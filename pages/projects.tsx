@@ -50,7 +50,7 @@ const Projects: React.FC<ProjectProps> = ({ projects }) => (
     <Container alignItems="center">
       <Title>Projects</Title>
       <Text textAlign="center">
-        I'm always working on new projects. <br />
+        I&apos;m always working on new projects. <br />
         You can find them on my&nbsp;
         <a href="https://github.com/shellbear">Github</a>.
       </Text>

@@ -37,8 +37,8 @@ const Home: React.FC = () => (
       <Container maxWidth="700px" gridGap="3rem">
         <Container>
           <Text textAlign="center">
-            I'm a Full Stack developer with experience in DevOps, Backend,
-            Frontend and mobile development. I'm currently CTO of&nbsp;
+            I&apos;m a Full Stack developer with experience in DevOps, Backend,
+            Frontend and mobile development. Currently CTO of&nbsp;
             <a href="https://shareview.fr">Shareview</a> and living in Seoul.
           </Text>
         </Container>
@@ -54,8 +54,8 @@ const Home: React.FC = () => (
           Get in touch
         </Title>
         <Text textAlign="center">
-          Although I'm not actively looking for job opportunities, my inbox is
-          still open for you. Feel free to ask me anything!
+          Although I&apos;m not actively looking for job opportunities, my inbox
+          is still open for you. Feel free to ask me anything!
         </Text>
         <Grid
           gridGap="2rem"
