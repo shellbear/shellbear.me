@@ -2,6 +2,8 @@
 
 Source code of my personal website & blog ✨
 
+Check the live version [here](https://shellbear.me/) ⚡️
+
 ![home](./.github/img/home.png)
 ![blog](./.github/img/blog.png)
 
@@ -26,7 +28,15 @@ Source code of my personal website & blog ✨
 
 ## 💻 Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
