@@ -32,10 +32,10 @@ const Blog: NextPage<BlogProps> = ({ pages }) => {
           .
         </Text>
       </Container>
-      <Grid gridTemplateColumns={['1fr', '1fr 1fr']} gridGap="2rem">
+      <Grid gridTemplateColumns={['1fr', '1fr 1fr']} gridGap={['3rem', '2rem']}>
         {pages.map(({ title, uri, date, cover }, i) => (
           <Link key={i} href={uri}>
-            <Card>
+            <Card padding={[0]} margin={[0]}>
               <Grid
                 gridTemplateColumns={'1fr'}
                 justifyItems={['center', 'flex-start']}
@@ -49,7 +49,10 @@ const Blog: NextPage<BlogProps> = ({ pages }) => {
                     alt={title}
                   />
                 )}
-                <Container gridGap=".5rem">
+                <Container
+                  gridGap=".5rem"
+                  alignItems={['center', 'flex-start']}
+                >
                   <Title
                     as="h2"
                     fontSize="1.5rem"

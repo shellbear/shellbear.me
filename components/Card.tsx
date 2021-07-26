@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { layout, space, compose } from 'styled-system';
+
 import Grid, { GridProps } from './Grid';
 
 export interface CardProps extends GridProps {
@@ -17,12 +19,14 @@ const Card = styled(Grid)<CardProps>`
   ${({ selected }) =>
     selected &&
     css`
-      box-shadow: rgb(232 235 248 / 90%) 0px 0px 60px;
+      box-shadow: rgb(232 235 248 / 90%) 0 0 60px;
     `}
 
   :hover {
-    box-shadow: rgb(232 235 248 / 90%) 0px 0px 60px;
+    box-shadow: rgb(232 235 248 / 90%) 0 0 60px;
   }
+
+  ${compose(layout, space)}
 `;
 
 export default Card;
