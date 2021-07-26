@@ -28,8 +28,6 @@ const FooterGrid = styled.div`
   margin-bottom: 30px;
   margin-top: 20px;
   justify-content: center;
-  -webkit-box-align: center;
-  -webkit-box-pack: center;
 `;
 
 const Footer = (): JSX.Element => {

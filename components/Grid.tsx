@@ -25,10 +25,7 @@ export type GridProps = GridGapProps &
 
 const Grid = styled.div<GridProps>`
   display: grid;
-
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: end;
   justify-content: flex-end;
 
   grid-template-columns:
