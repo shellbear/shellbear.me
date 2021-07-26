@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, Text, Container, Grid, Link, Card } from '../components';
+import { Title, Text, Container, Grid, Link, Card } from '@components';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
@@ -17,14 +17,14 @@ import {
   SiPython,
   SiGraphql,
 } from 'react-icons/si';
-import { getPosts, Post } from '../posts';
-import TransparentLink from '../components/TransparentLink';
+import { getPosts, Post } from '@posts';
+import { TransparentLink } from '@components';
 
 interface AboutProps {
   experiences: Post[];
 }
 
-const About: React.FC<AboutProps> = ({ experiences }) => {
+const About = ({ experiences }: AboutProps): JSX.Element => {
   const stacks = React.useMemo(
     () => [
       {

@@ -1,11 +1,13 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import { AppProps } from 'next/app';
 import { motion } from 'framer-motion';
 
-import '../styles/globals.css';
+import { Layout } from '@components';
+
+import '@styles/globals.css';
 import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism.css';
+
 import 'prismjs/prism.js';
 import 'prismjs/components/prism-go';
 import 'prismjs/components/prism-typescript';

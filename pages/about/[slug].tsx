@@ -1,9 +1,10 @@
 import { GetStaticPaths, GetStaticPropsResult, NextPage } from 'next';
 import { NotionRenderer, NotionRendererProps, Code } from 'react-notion-x';
 import { NotionAPI } from 'notion-client';
-import { getPageInfo, Page, EXPERIENCES } from '../../posts/notion';
-import { Container } from '../../components';
 import Head from 'next/head';
+
+import { getPageInfo, Page, EXPERIENCES } from '@posts/notion';
+import { Container } from '@components';
 
 interface BlogProps {
   page: Page;

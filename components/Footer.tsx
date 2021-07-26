@@ -6,8 +6,7 @@ import Text from './Text';
 import React from 'react';
 import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
 import { MdMail } from 'react-icons/md';
-import Malt from '../icons/Malt';
-import Instagram from '../icons/Instagram';
+import { Malt, Instagram } from '@icons';
 
 const StyledFooter = styled.footer`
   width: 100%;

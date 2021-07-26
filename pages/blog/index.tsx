@@ -1,11 +1,10 @@
+import Head from 'next/head';
+import styled from 'styled-components';
 import { GetStaticPropsResult, NextPage } from 'next';
 import { NotionAPI } from 'notion-client';
-import { Container, Grid, Card, Image, Text } from '../../components';
-import Head from 'next/head';
-import { getPageInfo, Page, POSTS } from '../../posts/notion';
-import Title from '../../components/Title';
-import Link from '../../components/Link';
-import styled from 'styled-components';
+
+import { getPageInfo, Page, POSTS } from '@posts/notion';
+import { Title, Link, Container, Grid, Card, Image, Text } from '@components';
 
 interface BlogProps {
   pages: Page[];

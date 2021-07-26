@@ -1,14 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
-import { Title, Container, Text } from '../components';
 import { GetStaticProps } from 'next';
 
-import { getPosts, Post } from '../posts';
-import Button from '../components/Button';
-import Grid from '../components/Grid';
-import Link from '../components/Link';
-import List from '../components/List';
+import { Title, Container, Text, Button, Grid, Link, List } from '@components';
+import { getPosts, Post } from '@posts';
 
 interface ProjectProps {
   projects: Post[];
@@ -42,7 +38,7 @@ const ProjectButton = styled(Button)`
   padding: 12px 30px;
 `;
 
-const Projects: React.FC<ProjectProps> = ({ projects }) => (
+const Projects = ({ projects }: ProjectProps): JSX.Element => (
   <Container marginBottom="5rem">
     <Head>
       <title>Projects</title>

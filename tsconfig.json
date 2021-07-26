@@ -16,7 +16,17 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "@icons": ["icons"],
+      "@icons/*": ["icons/*"],
+      "@styles/*": ["styles/*"],
+      "@posts": ["posts"],
+      "@posts/*": ["posts/*"],
+      "@components": ["components"],
+      "@components/*": ["components/*"]
+    }
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]

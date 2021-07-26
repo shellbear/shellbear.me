@@ -1,9 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import Container from './Container';
 import Footer from './Footer';
 import Nav from './Nav';
+
+import styles from '@styles/Home.module.css';
 
 type LayoutProps = {
   children?: React.ReactNode;

@@ -1,10 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import { Container, Title, Button, Grid, Link, Text } from '../components';
 import { motion } from 'framer-motion';
-import styles from '../styles/Home.module.css';
 
-const Home: React.FC = () => (
+import { Container, Title, Button, Grid, Link, Text } from '@components';
+import styles from '@styles/Home.module.css';
+
+const Home = (): JSX.Element => (
   <Container>
     <Container
       justifyContent="center"
