@@ -100,9 +100,9 @@ const About = ({ experiences }: AboutProps): JSX.Element => {
             at <a href="https://www.cau.ac.kr/">Chung-Ang</a> University.
           </Text>
           <Text>
-            During my free time I like going gym, doing some Bench Press, make
-            design and make video edits on After Effects. You can check some
-            some cool drone edits on my{' '}
+            During my free time I like going gym, doing Bench Press, make design
+            and make video edits on After Effects. You can check some cool drone
+            edits on my{' '}
             <a href="https://instagram.com/croissant2france">Instagram</a>.
           </Text>
         </Container>
