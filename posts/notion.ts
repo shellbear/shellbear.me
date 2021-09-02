@@ -30,7 +30,7 @@ export const EXPERIENCES = {
     uri: 'shblog/Tresorio-12516126ddb84eb6abc72656731e1f26',
   },
   epitech: {
-    date: '2018 - 2019',
+    date: '2018',
     uri: 'shblog/Epitech-Teaching-assistant-b8ee49774bd5423ba00a6921c026c1c6',
   },
   bilberry: {

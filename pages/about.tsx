@@ -86,19 +86,10 @@ const About = ({ experiences }: AboutProps): JSX.Element => {
       </Head>
       <Container alignContent="center" alignItems="center">
         <Title fontSize={['3rem', '4rem']} as="h2">
-          Student &rarr; CTO
+          CTO & passionate
         </Title>
         <Container maxWidth={['100%', '700px']} marginY="2rem">
-          <Text>
-            I&apos;m a 21-year-old student at{' '}
-            <a href="https://www.epitech.eu/en/">Epitech</a> in Paris currently
-            studying computer-science. I started working as a freelance
-            developer when I was 18.
-          </Text>
-          <Text>
-            Since 2020, I&apos;m living in Seoul and studying computer-science
-            at <a href="https://www.cau.ac.kr/">Chung-Ang</a> University.
-          </Text>
+          <Text>I&apos;m a Full-Stack/DevOps developer living in Paris.</Text>
           <Text>
             During my free time I like going gym, doing Bench Press, make design
             and make video edits on After Effects. You can check some cool drone

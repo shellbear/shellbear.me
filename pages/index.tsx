@@ -40,7 +40,7 @@ const Home = (): JSX.Element => (
           <Text textAlign="center">
             I&apos;m a Full Stack developer with experience in DevOps, Backend,
             Frontend and mobile development. Currently CTO of&nbsp;
-            <a href="https://shareview.fr">Shareview</a> and living in Seoul.
+            <a href="https://shareview.fr">Shareview</a> and living in Paris.
           </Text>
         </Container>
         <Link href="/about">
