@@ -3,6 +3,8 @@ import React from 'react';
 import Grid from './Grid';
 import Container from './Container';
 import styled from 'styled-components';
+import Menu from '@icons/Menu';
+import Close from '@icons/Close';
 
 const states: { [key: string]: React.CSSProperties } = {
   '/': {
@@ -17,8 +19,12 @@ const states: { [key: string]: React.CSSProperties } = {
     left: '157px',
     width: '55px',
   },
-  '/projects': {
+  '/bookmarks': {
     left: '224px',
+    width: '100px',
+  },
+  '/projects': {
+    left: '340px',
     width: '79px',
   },
 };
@@ -39,7 +45,27 @@ const NavLink = styled.a`
   }
 `;
 
-const Nav = (): JSX.Element => {
+const MenuContainer = styled(Container)`
+  cursor: pointer;
+`;
+
+export interface NavProps {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
+
+const Links = (): JSX.Element => (
+  <>
+    <NavLink href="/">Home</NavLink>
+    <NavLink href="/about">About</NavLink>
+    <NavLink href="/blog">Blog</NavLink>
+    <NavLink href="/bookmarks">Bookmarks</NavLink>
+    <NavLink href="/projects">Projects</NavLink>
+  </>
+);
+
+const Nav = ({ isOpen, onOpen, onClose }: NavProps): JSX.Element => {
   const router = useRouter();
   let navStyle = states['/'];
 
@@ -55,21 +81,41 @@ const Nav = (): JSX.Element => {
   return (
     <Grid
       as="nav"
-      alignContent="center"
-      justifyContent="space-between"
-      my="3rem"
+      px={['2rem', '2rem', '2rem', '0']}
       gridTemplateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
+      alignContent="center"
+      justifyContent={['center', 'center', 'space-between']}
+      margin="3rem 0"
     >
       <Container display={['none', 'none', 'flex']}>
         <NavLink href="/">Antoine Ordonez</NavLink>
       </Container>
-      <Container alignContent="center">
+      <MenuContainer display={['flex', 'none', 'none']}>
+        {isOpen ? (
+          <Close
+            size="2rem"
+            style={{ margin: '-0.3rem' }}
+            onClick={(evt) => evt.type === 'click' && onClose()}
+          />
+        ) : (
+          <Menu
+            size="1.6rem"
+            onClick={(evt) => evt.type === 'click' && onOpen()}
+          />
+        )}
+      </MenuContainer>
+      {isOpen && (
+        <Grid gridTemplateColumns="1fr" style={{ fontSize: '2rem' }} py="3rem">
+          <Links />
+        </Grid>
+      )}
+      <Container alignContent="center" display={['none', 'flex', 'flex']}>
         <Grid
           width="fit-content"
           gridGap="2rem"
           alignItems="center"
           justifyItems="center"
-          gridTemplateColumns="repeat(4, auto)"
+          gridTemplateColumns="repeat(5, auto)"
           style={{
             borderRadius: '25px',
             background: 'rgba(0, 0, 0, 0.04)',
@@ -88,10 +134,7 @@ const Nav = (): JSX.Element => {
               ...navStyle,
             }}
           />
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
+          <Links />
         </Grid>
       </Container>
       <Container alignContent="flex-end" display={['none', 'none', 'flex']}>

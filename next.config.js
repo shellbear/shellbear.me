@@ -1,5 +1,8 @@
 module.exports = {
   target: 'serverless',
+  images: {
+    domains: ['rdl.ink'],
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;

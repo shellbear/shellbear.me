@@ -5,6 +5,7 @@ import {
   justifyContent,
   justifyItems,
   alignItems,
+  position,
   flexDirection,
   grid,
   textAlign,
@@ -27,9 +28,11 @@ import {
   TextAlignProps,
   ColorProps,
   BordersProps,
+  PositionProps,
 } from 'styled-system';
 
-export type ContainerProps = LayoutProps &
+export type ContainerProps = PositionProps &
+  LayoutProps &
   AlignContentProps &
   JustifyContentProps &
   FlexDirectionProps &
@@ -49,6 +52,7 @@ const Container = styled.div<ContainerProps>`
   flex-wrap: wrap;
 
   ${compose(
+    position,
     alignContent,
     justifyContent,
     justifyItems,
