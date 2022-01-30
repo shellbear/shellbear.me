@@ -21,10 +21,12 @@
     ]
   },
   "dependencies": {
+    "@notionhq/client": "^0.4.13",
     "fast-glob": "^3.2.11",
     "framer-motion": "^6.2.3",
     "gray-matter": "^4.0.3",
     "javascript-time-ago": "^2.3.11",
+    "lodash": "^4.17.21",
     "next": "^12.0.9",
     "next-mdx-remote": "^3.0.8",
     "notion-client": "^4.15.0",
@@ -42,6 +44,7 @@
   },
   "devDependencies": {
     "@types/javascript-time-ago": "^2.0.3",
+    "@types/lodash": "^4.14.178",
     "@types/react": "^17.0.38",
     "@types/styled-components": "^5.1.21",
     "@types/styled-system": "^5.1.15",
