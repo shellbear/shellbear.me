@@ -88,12 +88,12 @@ const About = ({ experiences }: AboutProps): JSX.Element => {
         <Title fontSize={['3rem', '4rem']} as="h2">
           CTO & passionate
         </Title>
-        <Container maxWidth={['100%', '700px']} marginY="2rem">
+        <Container maxWidth={['100%', '720px']} marginY="2rem">
           <Text>I&apos;m a Full-Stack/DevOps developer living in Paris.</Text>
           <Text>
             During my free time I like going gym, doing Bench Press, make design
             and make video edits on After Effects. You can check some cool drone
-            edits on my{' '}
+            edits on my&nbsp;
             <a href="https://instagram.com/croissant2france">Instagram</a>.
           </Text>
         </Container>
