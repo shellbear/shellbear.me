@@ -13,7 +13,7 @@ import {
   SiGooglecloud,
   SiTerraform,
   SiReact,
-  SiNextDotJs,
+  SiNextdotjs,
   SiPython,
   SiGraphql,
 } from 'react-icons/si';
@@ -52,7 +52,7 @@ const About = ({ experiences }: AboutProps): JSX.Element => {
         url: 'https://aws.amazon.com/',
       },
       {
-        Icon: SiNextDotJs,
+        Icon: SiNextdotjs,
         url: 'https://nextjs.org/',
       },
       {

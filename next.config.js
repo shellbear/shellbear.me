@@ -1,5 +1,4 @@
 module.exports = {
-  target: 'serverless',
   images: {
     domains: ['rdl.ink'],
   },
