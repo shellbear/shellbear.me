@@ -37,7 +37,7 @@ const Bookmarks = ({ bookmarks }: BookmarksProps): JSX.Element => (
     </Container>
     <Grid
       alignItems="baseline"
-      gridTemplateColumns={['1fr 1fr', 'repeat(3, 1fr)']}
+      gridTemplateColumns={['repeat(2, minmax(0, 1fr))', 'repeat(3, 1fr)']}
       gridGap={['1rem', '2rem']}
     >
       {bookmarks.map(({ id, name, created, url }) => (
@@ -115,7 +115,6 @@ export const getServerSideProps = async (): Promise<
   GetStaticPropsResult<BookmarksProps>
 > => {
   const bookmarks = await getBookmarks();
-  console.log(bookmarks);
   return {
     props: {
       bookmarks: formatBookmarks(bookmarks),
