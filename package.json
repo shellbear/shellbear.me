@@ -27,7 +27,7 @@
     "gray-matter": "^4.0.3",
     "javascript-time-ago": "^2.3.11",
     "lodash": "^4.17.21",
-    "next": "^12.0.9",
+    "next": "^12.1.0",
     "next-mdx-remote": "^3.0.8",
     "notion-client": "^4.15.0",
     "notion-utils": "^4.15.0",
