@@ -1,14 +1,19 @@
 import { GetStaticPaths, GetStaticPropsResult, NextPage } from 'next';
-import { NotionRenderer, NotionRendererProps, Code } from 'react-notion-x';
+import dynamic from 'next/dynamic';
+import { NotionRenderer } from 'react-notion-x';
 import { NotionAPI } from 'notion-client';
 import Head from 'next/head';
-
 import { getPageInfo, Page, EXPERIENCES } from '@posts/notion';
 import { Container } from '@components';
+import { ComponentProps } from 'react';
+
+const Code = dynamic(
+  async () => (await import('react-notion-x/build/third-party/code')).Code,
+);
 
 interface BlogProps {
   page: Page;
-  recordMap: NotionRendererProps['recordMap'];
+  recordMap: ComponentProps<typeof NotionRenderer>['recordMap'];
 }
 
 const About: NextPage<BlogProps> = ({ page, recordMap }) => (
@@ -26,7 +31,7 @@ const About: NextPage<BlogProps> = ({ page, recordMap }) => (
       className="notion-container"
       recordMap={recordMap}
       components={{
-        code: Code,
+        Code,
       }}
     />
   </Container>

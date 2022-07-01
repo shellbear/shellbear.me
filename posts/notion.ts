@@ -1,4 +1,4 @@
-import { ExtendedRecordMap } from 'notion-types/src/maps';
+import { ExtendedRecordMap } from 'notion-types';
 import { getPageTitle } from 'notion-utils';
 
 export const POSTS = {

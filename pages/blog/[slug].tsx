@@ -1,14 +1,20 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { GetStaticPaths, GetStaticPropsResult, NextPage } from 'next';
-import { NotionRenderer, NotionRendererProps, Code } from 'react-notion-x';
+import { NotionRenderer } from 'react-notion-x';
 import { NotionAPI } from 'notion-client';
 
 import { getPageInfo, Page, POSTS } from '@posts/notion';
 import { Container, Text } from '@components';
+import { ComponentProps } from 'react';
+
+const Code = dynamic(
+  async () => (await import('react-notion-x/build/third-party/code')).Code,
+);
 
 interface BlogProps {
   page: Page;
-  recordMap: NotionRendererProps['recordMap'];
+  recordMap: ComponentProps<typeof NotionRenderer>['recordMap'];
 }
 
 const Blog: NextPage<BlogProps> = ({ page, recordMap }) => (
@@ -22,7 +28,7 @@ const Blog: NextPage<BlogProps> = ({ page, recordMap }) => (
       className="notion-container"
       recordMap={recordMap}
       components={{
-        code: Code,
+        Code,
       }}
     />
     <Container textAlign="center" gridGap=".4rem" my="3rem">

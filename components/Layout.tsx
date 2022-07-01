@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Container from './Container';
 import Footer from './Footer';
 import Nav from './Nav';
+import Script from 'next/script';
 
 import styles from '@styles/Home.module.css';
 
@@ -39,11 +40,13 @@ const Layout: React.FC<LayoutProps> = ({
         />
         {process.env.NODE_ENV === 'production' && (
           <>
-            <script
+            <Script
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-RZP6RWZ32F"
             />
-            <script
+            <Script
+              id="gtm-script"
+              strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
                   window.dataLayer = window.dataLayer || [];
