@@ -45,7 +45,7 @@ const Footer = (): JSX.Element => {
         icon: MdMail,
       },
       {
-        url: 'https://malt.fr/profile/antoineordonez',
+        url: 'https://www.malt.fr/profile/antoineordonez',
         icon: Malt,
       },
       {
