@@ -18,7 +18,7 @@ const Home = (): JSX.Element => (
     >
       <Container alignItems="center" alignContent="center">
         <Image
-          src="/me.jpg"
+          src="/me.webp"
           alt="Antoine Ordonez"
           width="120px"
           height="120px"

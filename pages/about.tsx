@@ -166,11 +166,7 @@ const About = ({ experiences }: AboutProps): JSX.Element => {
                       <Title fontSize="1.5rem" margin={0} as="h3">
                         {data.title}
                       </Title>
-                      <Text
-                        fontSize="smaller"
-                        margin={0}
-                        color="rgba(0, 0, 0, 0.1)"
-                      >
+                      <Text fontSize="smaller" margin={0}>
                         {data.date}
                       </Text>
                     </Grid>

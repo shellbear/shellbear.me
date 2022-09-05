@@ -6,6 +6,7 @@ import {
   fontWeight,
   display,
   typography,
+  color,
   layout,
   compose,
   TextAlignProps,
@@ -34,6 +35,7 @@ const Text = styled.p<
   letter-spacing: 0.02em;
 
   ${compose(
+    color,
     textAlign,
     margin,
     fontSize,

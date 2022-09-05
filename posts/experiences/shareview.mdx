@@ -2,5 +2,36 @@
 title: Shareview
 post: CTO
 date: 2020 - Now
+link: https://shareview.fr/
+image: /img/shareview.webp
 caption: Discover more about my first experience as a CTO.
+description: 🌿 CTO of Shareview since 2020, a new social network that aims to share landscapes from all over the world. I designed the whole infrastructure on AWS EKS, Backend services and worked on the mobile application.
+tags: ['Social network', 'Videos', 'Encoding', 'Mobile', 'Website']
+stack:
+  [
+    'Go',
+    'GraphQL',
+    'React-Native',
+    'Expo, Micro Services',
+    'Kubernetes',
+    'EKS',
+    'AWS',
+    'Email',
+    'Helm',
+    'ElasticSearch',
+    'Fluentd, Kibana',
+    'Next.js',
+    'CI/CD',
+    'Chromecast',
+  ]
 ---
+
+- The infrastructure is fully managed with **terraform** and **ekstcl**.
+- Backend services are written in **Go** and expose a **GraphQL API**.
+- Backend services communicates with a pub/sub queue, for tasks such as video encoding.
+- Deployment is automated with a CI/CD and **Helm charts**.
+- Monitoring is made with _Sentry_ and EFK stack (**ElasticSearch**, **Fluentd** and **Kibana**).
+- The mobile application is made with **React-Native**.
+- Front-end is made with **Next.js**.
+
+Available for [iOS](https://apps.apple.com/fr/app/shareview-vid%C3%A9os-de-paysages/id1549748087) and [Android](https://play.google.com/store/apps/details?id=fr.shareview.app).

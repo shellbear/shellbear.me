@@ -36,7 +36,7 @@ const Layout: React.FC<LayoutProps> = ({
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           property="og:image"
-          content="https://shellbear.me/img/preview.png"
+          content="https://shellbear.me/img/preview.webp"
         />
         {process.env.NODE_ENV === 'production' && (
           <>
