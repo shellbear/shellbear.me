@@ -29,59 +29,54 @@ const FooterGrid = styled.div`
   justify-content: center;
 `;
 
-const Footer = (): JSX.Element => {
-  const links = React.useMemo(
-    () => [
-      {
-        url: 'https://github.com/shellbear',
-        icon: SiGithub,
-      },
-      {
-        url: 'https://twitter.com/_shellbear',
-        icon: SiTwitter,
-      },
-      {
-        url: 'mailto:hello@shellbear.me',
-        icon: MdMail,
-      },
-      {
-        url: 'https://www.malt.fr/profile/antoineordonez',
-        icon: Malt,
-      },
-      {
-        url: 'https://linkedin.com/in/antoine-ordonez',
-        icon: SiLinkedin,
-      },
-      {
-        url: 'https://instagram.com/croissant2france',
-        icon: Instagram,
-      },
-    ],
-    [],
-  );
+const links = [
+  {
+    url: 'https://github.com/shellbear',
+    icon: SiGithub,
+  },
+  {
+    url: 'https://twitter.com/_shellbear',
+    icon: SiTwitter,
+  },
+  {
+    url: 'mailto:hello@shellbear.me',
+    icon: MdMail,
+  },
+  {
+    url: 'https://www.malt.fr/profile/antoineordonez',
+    icon: Malt,
+  },
+  {
+    url: 'https://linkedin.com/in/antoine-ordonez',
+    icon: SiLinkedin,
+  },
+  {
+    url: 'https://instagram.com/croissant2france',
+    icon: Instagram,
+  },
+];
 
-  return (
-    <StyledFooter>
-      <Container paddingY="25px">
-        <Grid gridGap="30px">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="mailto:hello@shellbear.me">Contact</Link>
-        </Grid>
-      </Container>
-      <FooterGrid>
-        {links.map(({ url, icon: Icon }) => (
-          <Link key={url} target="_blank" opacity={0.7} href={url}>
-            <Icon size={22} />
-          </Link>
-        ))}
-      </FooterGrid>
-      <Text margin={0} fontSize="0.9rem" color="rgba(0, 0, 0, 0.7)">
-        © {new Date().getFullYear()} Antoine Ordonez
-      </Text>
-    </StyledFooter>
-  );
-};
+const Footer = (): JSX.Element => (
+  <StyledFooter>
+    <Container paddingY="25px">
+      <Grid gridGap="30px">
+        <Link href="/">Home</Link>
+        <Link href="/about">About</Link>
+        <Link href="/projects">Projects</Link>
+        <Link href="mailto:hello@shellbear.me">Contact</Link>
+      </Grid>
+    </Container>
+    <FooterGrid>
+      {links.map(({ url, icon: Icon }) => (
+        <Link key={url} target="_blank" opacity={0.7} href={url}>
+          <Icon size={22} />
+        </Link>
+      ))}
+    </FooterGrid>
+    <Text margin={0} fontSize="0.9rem" color="rgba(0, 0, 0, 0.7)">
+      © {new Date().getFullYear()} Antoine Ordonez
+    </Text>
+  </StyledFooter>
+);
 
 export default Footer;

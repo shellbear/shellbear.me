@@ -30,7 +30,7 @@ const About: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </Text>
         ))}
       </Container>
-      <Title fontSize={['2.5rem', '4rem']} textAlign="justify">
+      <Title fontSize={['2.5rem', '4rem']} textAlign="start">
         {experience.data.title} - {experience.data.post}
       </Title>
       <Container
