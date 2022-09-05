@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { getPlaiceholder } from 'plaiceholder';
 
 const baseDir = path.join(process.cwd(), './posts/');
 
@@ -13,7 +14,7 @@ export interface Post {
   content: string;
 }
 
-const getPosts = (dir: string): Promise<Post[]> => {
+const getPosts = async (dir: string): Promise<Post[]> => {
   const contentGlob = path.join(path.join(baseDir, dir), '/*.mdx');
   const files = glob.sync(contentGlob);
 
@@ -25,6 +26,12 @@ const getPosts = (dir: string): Promise<Post[]> => {
       const { data, content } = matter(raw);
 
       data.slug = slug;
+
+      if (data.image) {
+        const { base64 } = await getPlaiceholder(data.image);
+        data.blurImage = base64;
+      }
+
       const source = await serialize(content, {
         scope: data,
       });

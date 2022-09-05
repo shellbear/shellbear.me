@@ -11,3 +11,4 @@ export { default as Card } from './Card';
 export { default as Image } from './Image';
 export { default as TransparentLink } from './TransparentLink';
 export { default as MDXContent } from './MDXContent';
+export { default as Separator } from './Separator';

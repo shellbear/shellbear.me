@@ -5,7 +5,7 @@ import {
   NextPage,
 } from 'next';
 import Head from 'next/head';
-import { Container, Title, Text, MDXContent } from '@components';
+import { Container, Title, Text, MDXContent, Separator } from '@components';
 import { getPosts, Post } from '@posts';
 import Image from 'next/image';
 
@@ -48,6 +48,8 @@ const About: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           alt={experience.data.title}
           layout="fill"
           objectFit="cover"
+          placeholder="blur"
+          blurDataURL={experience.data.blurImage}
         />
       </Container>
       <Container mt="1rem" gridGap="1rem">
@@ -65,12 +67,7 @@ const About: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </Text>
       </Container>
     </Container>
-    <hr
-      style={{
-        width: '100%',
-        border: '1px solid rgba(0,0,0,0.1)',
-      }}
-    />
+    <Separator />
     <MDXContent {...experience.source} />
   </Container>
 );
