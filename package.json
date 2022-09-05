@@ -11,11 +11,6 @@
     "format": "prettier --write .",
     "prepack": "husky install"
   },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "next lint --fix"
-    ]
-  },
   "dependencies": {
     "@notionhq/client": "^2.2.0",
     "fast-glob": "^3.2.11",
@@ -44,7 +39,7 @@
     "@types/react": "^18.0.18",
     "@types/styled-components": "^5.1.26",
     "@types/styled-system": "^5.1.15",
-    "@typescript-eslint/parser": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.2",
     "eslint": "^8.23.0",
     "eslint-config-next": "^12.2.5",
     "eslint-config-prettier": "^8.5.0",
