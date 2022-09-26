@@ -28,6 +28,7 @@ const Bookmarks = ({ bookmarks }: BookmarksProps): JSX.Element => (
   <Container marginBottom="5rem">
     <Head>
       <title>Bookmarks</title>
+      <link rel="preconnect" href="https://rdl.ink" />
     </Head>
     <Container alignItems="center" mb="3rem">
       <Title>Bookmarks</Title>
@@ -52,7 +53,9 @@ const Bookmarks = ({ bookmarks }: BookmarksProps): JSX.Element => (
                 <Image
                   layout="fill"
                   objectFit="cover"
-                  src={`https://rdl.ink/render/${encodeURIComponent(url)}`}
+                  src={`https://rdl.ink/render/${encodeURIComponent(
+                    url,
+                  )}?width=400&height=150&mode=crop&format=avif`}
                   alt={name}
                 />
               </Container>
