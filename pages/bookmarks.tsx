@@ -1,9 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-import { GetStaticPropsResult } from 'next';
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import Image from 'next/image';
 import TimeAgo from 'javascript-time-ago';
-import { compact } from 'lodash';
 import { Title, Container, Text, Grid, Link, Card } from '@components';
 
 import en from 'javascript-time-ago/locale/en.json';
@@ -13,18 +12,9 @@ import { getBookmarks } from '../notion';
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo('en-US');
 
-export interface Bookmark {
-  id: string;
-  created: string;
-  name: string;
-  url: string;
-}
-
-interface BookmarksProps {
-  bookmarks: ReadonlyArray<Bookmark>;
-}
-
-const Bookmarks = ({ bookmarks }: BookmarksProps): JSX.Element => (
+const Bookmarks = ({
+  bookmarks,
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => (
   <Container marginBottom="5rem">
     <Head>
       <title>Bookmarks</title>
@@ -90,34 +80,50 @@ const Bookmarks = ({ bookmarks }: BookmarksProps): JSX.Element => (
   </Container>
 );
 
+export interface Bookmark {
+  id: string;
+  created: string;
+  name: string;
+  url: string;
+}
+
 const formatBookmarks = ({
   results,
 }: QueryDatabaseResponse): ReadonlyArray<Bookmark> =>
-  compact(
-    results.map((result) => {
-      if (
-        result.object === 'page' &&
-        'url' in result &&
-        result.properties?.Created?.type === 'created_time' &&
-        result.properties?.URL?.type == 'url' &&
-        result.properties.URL.url &&
-        result.properties?.Name?.type == 'title' &&
-        result.properties.Name.title?.[0]?.type === 'text'
-      ) {
-        return {
+  results.reduce<Array<Bookmark>>((acc, result) => {
+    if (
+      result.object === 'page' &&
+      'url' in result &&
+      result.properties?.Created?.type === 'created_time' &&
+      result.properties?.URL?.type == 'url' &&
+      result.properties.URL.url &&
+      result.properties?.Name?.type == 'title' &&
+      result.properties.Name.title?.[0]?.type === 'text'
+    ) {
+      return [
+        ...acc,
+        {
           id: result.id,
           url: result.properties.URL.url,
           created: result.properties.Created.created_time,
           name: result.properties.Name.title[0].plain_text,
-        };
-      }
-    }),
+        },
+      ];
+    }
+
+    return acc;
+  }, []);
+
+export const getServerSideProps = async ({
+  res,
+}: GetServerSidePropsContext) => {
+  const bookmarks = await getBookmarks();
+
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=3600, stale-while-revalidate=60',
   );
 
-export const getServerSideProps = async (): Promise<
-  GetStaticPropsResult<BookmarksProps>
-> => {
-  const bookmarks = await getBookmarks();
   return {
     props: {
       bookmarks: formatBookmarks(bookmarks),
