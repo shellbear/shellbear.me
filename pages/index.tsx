@@ -20,8 +20,8 @@ const Home = (): JSX.Element => (
         <Image
           src="/me.webp"
           alt="Antoine Ordonez"
-          width="120px"
-          height="120px"
+          width={120}
+          height={120}
           objectFit="cover"
           className={styles.image}
         />
