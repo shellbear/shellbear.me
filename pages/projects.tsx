@@ -65,7 +65,7 @@ const Projects = ({ projects }: ProjectProps): JSX.Element => (
           width="100%"
           gridGap="1.5rem"
         >
-          <Link href={data.url} width="100%">
+          <Link href={data.url} width="100%" target="_blank">
             <ProjectImage src={data.preview} />
           </Link>
           <Container
@@ -74,12 +74,12 @@ const Projects = ({ projects }: ProjectProps): JSX.Element => (
             alignItems="center"
             width="100%"
           >
-            <Link href={data.url}>
+            <Link href={data.url} target="_blank">
               <Title fontSize="2rem" as="h2">
                 {data.title}
               </Title>
             </Link>
-            <Link href={data.url}>
+            <Link href={data.url} target="_blank">
               <ProjectButton variant="secondary">View Project</ProjectButton>
             </Link>
           </Container>
