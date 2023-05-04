@@ -107,6 +107,8 @@ const Projects = ({ projects }: ProjectProps): JSX.Element => (
 export const getStaticProps: GetStaticProps = async () => {
   const projects = await getPosts('projects');
 
+  projects.sort((first, second) => first.data.order - second.data.order);
+
   return {
     props: {
       projects,
