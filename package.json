@@ -14,6 +14,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.5",
     "@plaiceholder/next": "^2.5.0",
+    "@vercel/analytics": "^1.0.1",
     "fast-glob": "^3.2.12",
     "framer-motion": "^10.12.7",
     "gray-matter": "^4.0.3",
